@@ -1,38 +1,28 @@
 [build]
   publish = "."
 
-# Redirect everything to index.html for SPA routing
+# Serve index.html for the root and all page routes
+# but NOT for /admin/, /content/, or asset files
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
+  from = "/admin"
+  to = "/admin/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/admin/"
+  to = "/admin/index.html"
   status = 200
 
 # Security headers
 [[headers]]
   for = "/*"
   [headers.values]
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
+    X-Frame-Options = "SAMEORIGIN"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
 
-# Cache static assets
-[[headers]]
-  for = "/css/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/js/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-# Don't cache content files (so CMS edits show up immediately)
+# Don't cache content files so CMS edits show immediately
 [[headers]]
   for = "/content/*"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
-
-# Enable Netlify Identity for CMS login
-[build.environment]
-  NODE_VERSION = "18"
