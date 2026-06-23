@@ -2,7 +2,7 @@
   "hero": {
     "badge": "ISO-gecertificeerd · Utrecht, Nederland",
     "titel": "Precisie Spuitgieten voor Technische Kunststof Onderdelen",
-    "subtitel": "Van klein prototype tot serieproductie — wij leveren technische kunststof componenten die passen, werken en duren. Snel leverbaar, scherp geprijsd.",
+    "subtitel": "Van prototype tot serie- en massaproductie — wij leveren technische kunststof componenten die passen, werken en duren. Snel leverbaar, scherp geprijsd.",
     "knop1_tekst": "Offerte Aanvragen",
     "knop2_tekst": "Onze Diensten"
   },
@@ -28,10 +28,22 @@
     "tekst": "Plastic Industrie Utrecht BV bestaat al meer dan 25 jaar en is uitgegroeid tot een vertrouwde partner voor technische bedrijven in de Benelux en daarbuiten."
   },
   "stats": [
-    { "cijfer": "25+", "label": "Jaar ervaring" },
-    { "cijfer": "500+", "label": "Tevreden klanten" },
-    { "cijfer": "48u", "label": "Prototype levertijd" },
-    { "cijfer": "100%", "label": "NL Productie" }
+    {
+      "cijfer": "25+",
+      "label": "Jaar ervaring"
+    },
+    {
+      "cijfer": "500+",
+      "label": "Tevreden klanten"
+    },
+    {
+      "cijfer": "48u",
+      "label": "Prototype levertijd"
+    },
+    {
+      "cijfer": "100%",
+      "label": "NL Productie"
+    }
   ],
   "testimonials": [
     {
