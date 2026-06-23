@@ -25,7 +25,7 @@ p{line-height:1.7;color:#4A5E72}
 .page.active{display:block}
 header{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(13,27,42,0.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,92,26,0.18);height:68px;display:flex;align-items:center}
 .header-inner{max-width:1280px;margin:0 auto;width:100%;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
-.logo{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.05rem;color:var(--white);cursor:pointer;display:flex;align-items:center;gap:.5rem;flex-shrink:0;user-select:none}
+.logo{cursor:pointer;display:flex;align-items:center;flex-shrink:0;user-select:none;text-decoration:none}
 .logo-slash{display:inline-block;width:3px;height:22px;background:var(--orange);border-radius:2px;transform:skewX(-14deg)}
 .logo span{color:var(--orange)}
 nav{display:flex;align-items:center;gap:.2rem}
@@ -209,8 +209,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,92,26,.15);padding:4
 <header>
   <div class="header-inner">
     <div class="logo" onclick="showPage('home')" tabindex="0" role="link" aria-label="Home">
-      <div class="logo-slash" aria-hidden="true"></div>
-      Plastic Industrie <span>Utrecht</span>
+      <img src="/logo.png" alt="Plastic Industrie Utrecht BV" style="height:38px;width:auto;object-fit:contain;display:block;">
     </div>
     <nav aria-label="Hoofdnavigatie">
       <a data-page="home"      onclick="showPage('home')"      class="active">Home</a>
@@ -248,8 +247,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,92,26,.15);padding:4
     <div class="footer-inner">
       <div class="footer-logo">
         <div class="logo" onclick="showPage('home')" style="cursor:pointer">
-          <div class="logo-slash" aria-hidden="true"></div>
-          Plastic Industrie <span>Utrecht</span>
+          <img src="/logo.png" alt="Plastic Industrie Utrecht BV" style="height:38px;width:auto;object-fit:contain;filter:brightness(0) invert(1);display:block;">
         </div>
         <p>Specialist in spuitgieten, matrijzen en SLS 3D printen voor technische kunststof componenten.</p>
         <div class="footer-social">
