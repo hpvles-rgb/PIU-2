@@ -1,0 +1,61 @@
+{
+  "hero": {
+    "badge": "ISO-gecertificeerd · Utrecht, Nederland",
+    "titel": "Precisie Spuitgieten voor Technische Kunststof Onderdelen",
+    "subtitel": "Van klein prototype tot serieproductie — wij leveren technische kunststof componenten die passen, werken en duren. Snel leverbaar, scherp geprijsd.",
+    "knop1_tekst": "Offerte Aanvragen",
+    "knop2_tekst": "Onze Diensten"
+  },
+  "voordelen": [
+    {
+      "icoon": "⚙️",
+      "titel": "Kleine Series, Grote Precisie",
+      "tekst": "Minimale ordergrootte van 1 stuk. Ideaal voor R&D, vervangingsonderdelen en niche-producten met hoge maattoleranties."
+    },
+    {
+      "icoon": "🚀",
+      "titel": "Snel Leverbaar",
+      "tekst": "Dankzij eigen matrijzenmakerij en flexibele productiecapaciteit garanderen wij kortere doorlooptijden dan de marktstandaard."
+    },
+    {
+      "icoon": "🔩",
+      "titel": "Engineering Support",
+      "tekst": "Ons technisch team denkt mee over materiaalsoorten, matrijs-ontwerp en assemblage — van tekening tot eindproduct in één hand."
+    }
+  ],
+  "over": {
+    "titel": "Utrechts Vakmanschap, Europese Kwaliteitsstandaard",
+    "tekst": "Plastic Industrie Utrecht BV bestaat al meer dan 25 jaar en is uitgegroeid tot een vertrouwde partner voor technische bedrijven in de Benelux en daarbuiten."
+  },
+  "stats": [
+    { "cijfer": "25+", "label": "Jaar ervaring" },
+    { "cijfer": "500+", "label": "Tevreden klanten" },
+    { "cijfer": "48u", "label": "Prototype levertijd" },
+    { "cijfer": "100%", "label": "NL Productie" }
+  ],
+  "testimonials": [
+    {
+      "naam": "Marc van der Berg",
+      "functie": "Inkoopdirecteur, TechFlow Systems",
+      "quote": "PIU levert consistent hoge kwaliteit met doorlooptijden die elke andere leverancier overtreft. Onze go-to voor complexe kunststof componenten.",
+      "initialen": "MV"
+    },
+    {
+      "naam": "Sandra Evers",
+      "functie": "R&D Manager, MedDevice NL",
+      "quote": "De combinatie van SLS printen en spuitgieten onder één dak bespaart ons maanden in de ontwikkelcyclus. Uitzonderlijke technische kennis.",
+      "initialen": "SE"
+    },
+    {
+      "naam": "Joost Kramer",
+      "functie": "Operations Lead, Deltatech BV",
+      "quote": "Kleine series, snelle levertijden, eerlijke prijs. PIU is de partner die wij al jaren zochten. Geen verrassingen, altijd op tijd.",
+      "initialen": "JK"
+    }
+  ],
+  "cta": {
+    "titel": "Vraag vandaag nog een vrijblijvende offerte aan",
+    "tekst": "Upload uw tekening of beschrijf uw project. Wij reageren binnen één werkdag.",
+    "knop": "Offerte Aanvragen"
+  }
+}

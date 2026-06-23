@@ -1,0 +1,172 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Use Netlify Identity for authentication
+local_backend: false
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+locale: 'nl'
+
+collections:
+  # ── SITE-INSTELLINGEN ────────────────────────────────
+  - name: "instellingen"
+    label: "⚙️ Bedrijfsgegevens"
+    files:
+      - name: "algemeen"
+        label: "Bedrijfsgegevens & Contact"
+        file: "content/instellingen.json"
+        fields:
+          - { label: "Bedrijfsnaam", name: "bedrijfsnaam", widget: "string" }
+          - { label: "Telefoonnummer", name: "telefoon", widget: "string" }
+          - { label: "E-mailadres", name: "email", widget: "string" }
+          - { label: "Adres regel 1 (straat + nummer)", name: "adres1", widget: "string" }
+          - { label: "Adres regel 2 (postcode + stad)", name: "adres2", widget: "string" }
+          - { label: "KvK-nummer", name: "kvk", widget: "string" }
+          - { label: "BTW-nummer", name: "btw", widget: "string" }
+          - { label: "LinkedIn URL", name: "linkedin", widget: "string" }
+          - { label: "Instagram URL", name: "instagram", widget: "string" }
+          - { label: "Facebook URL", name: "facebook", widget: "string" }
+
+  # ── HOME PAGINA ──────────────────────────────────────
+  - name: "home"
+    label: "🏠 Home pagina"
+    files:
+      - name: "home"
+        label: "Home pagina inhoud"
+        file: "content/home.json"
+        fields:
+          - label: "Hero sectie (grote banner bovenaan)"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Badge tekst (kleine pill bovenaan)", name: "badge", widget: "string" }
+              - { label: "Grote koptitel (H1)", name: "titel", widget: "string" }
+              - { label: "Ondertekst", name: "subtitel", widget: "text" }
+              - { label: "Knop 1 tekst (oranje knop)", name: "knop1_tekst", widget: "string" }
+              - { label: "Knop 2 tekst (outline knop)", name: "knop2_tekst", widget: "string" }
+          - label: "3 Voordelen kaarten"
+            name: "voordelen"
+            widget: "list"
+            max: 3
+            min: 3
+            fields:
+              - { label: "Icoon (emoji)", name: "icoon", widget: "string" }
+              - { label: "Titel", name: "titel", widget: "string" }
+              - { label: "Tekst", name: "tekst", widget: "text" }
+          - label: "Over ons preview tekst"
+            name: "over"
+            widget: "object"
+            fields:
+              - { label: "Titel", name: "titel", widget: "string" }
+              - { label: "Tekst", name: "tekst", widget: "text" }
+          - label: "4 Statistieken (cijfers)"
+            name: "stats"
+            widget: "list"
+            max: 4
+            min: 4
+            fields:
+              - { label: "Cijfer (bijv. 25+)", name: "cijfer", widget: "string" }
+              - { label: "Label (bijv. Jaar ervaring)", name: "label", widget: "string" }
+          - label: "3 Klantreviews"
+            name: "testimonials"
+            widget: "list"
+            max: 3
+            min: 3
+            fields:
+              - { label: "Naam", name: "naam", widget: "string" }
+              - { label: "Functie + bedrijf", name: "functie", widget: "string" }
+              - { label: "Review tekst", name: "quote", widget: "text" }
+              - { label: "Initialen (2 letters voor avatar)", name: "initialen", widget: "string" }
+          - label: "CTA banner onderaan"
+            name: "cta"
+            widget: "object"
+            fields:
+              - { label: "Titel", name: "titel", widget: "string" }
+              - { label: "Subtekst", name: "tekst", widget: "string" }
+              - { label: "Knoptekst", name: "knop", widget: "string" }
+
+  # ── OVER ONS ─────────────────────────────────────────
+  - name: "over"
+    label: "👥 Over Ons pagina"
+    files:
+      - name: "over"
+        label: "Over Ons inhoud"
+        file: "content/over.json"
+        fields:
+          - { label: "Hero koptitel", name: "hero_titel", widget: "string" }
+          - { label: "Hero ondertekst", name: "hero_tekst", widget: "text" }
+          - { label: "Verhaal sectie titel", name: "verhaal_titel", widget: "string" }
+          - { label: "Verhaal sectie tekst", name: "verhaal_tekst", widget: "text" }
+          - label: "Tijdlijn (geschiedenis)"
+            name: "tijdlijn"
+            widget: "list"
+            fields:
+              - { label: "Titel", name: "titel", widget: "string" }
+              - { label: "Beschrijving", name: "tekst", widget: "text" }
+          - { label: "Missie quote (cursief blok)", name: "missie_quote", widget: "text" }
+          - label: "4 Onderscheidende punten"
+            name: "punten"
+            widget: "list"
+            max: 4
+            min: 4
+            fields:
+              - { label: "Titel (met icoon emoji)", name: "titel", widget: "string" }
+              - { label: "Tekst", name: "tekst", widget: "text" }
+
+  # ── DIENSTEN ─────────────────────────────────────────
+  - name: "diensten"
+    label: "🔧 Diensten pagina"
+    files:
+      - name: "diensten"
+        label: "Diensten inhoud"
+        file: "content/diensten.json"
+        fields:
+          - { label: "Hero koptitel", name: "hero_titel", widget: "string" }
+          - { label: "Hero ondertekst", name: "hero_tekst", widget: "text" }
+          - label: "Diensten (6 kaarten)"
+            name: "diensten"
+            widget: "list"
+            fields:
+              - { label: "Label/tag (bijv. Kernproces)", name: "tag", widget: "string" }
+              - { label: "Dienstnaam", name: "titel", widget: "string" }
+              - { label: "Afbeelding URL (van Unsplash bijv.)", name: "afbeelding", widget: "string" }
+              - { label: "Beschrijving", name: "beschrijving", widget: "text" }
+              - label: "Bullet points (kenmerken)"
+                name: "bullets"
+                widget: "list"
+                field: { label: "Kenmerk", name: "punt", widget: "string" }
+          - label: "FAQ vragen en antwoorden"
+            name: "faq"
+            widget: "list"
+            fields:
+              - { label: "Vraag", name: "vraag", widget: "string" }
+              - { label: "Antwoord", name: "antwoord", widget: "text" }
+
+  # ── PORTFOLIO ─────────────────────────────────────────
+  - name: "portfolio"
+    label: "📁 Portfolio projecten"
+    label_singular: "Project"
+    folder: "content/portfolio"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Projectnaam", name: "title", widget: "string" }
+      - { label: "Categorie", name: "categorie", widget: "select", options: ["Spuitgieten", "SLS 3D Print", "Assemblage", "Matrijzen"] }
+      - { label: "Afbeelding URL", name: "afbeelding", widget: "string", hint: "Plak een URL van bijv. unsplash.com of een eigen foto URL" }
+      - { label: "Beschrijving", name: "beschrijving", widget: "text" }
+      - { label: "Zichtbaar op website", name: "published", widget: "boolean", default: true }
+
+  # ── CONTACT ───────────────────────────────────────────
+  - name: "contact"
+    label: "📬 Contact pagina"
+    files:
+      - name: "contact"
+        label: "Contact inhoud"
+        file: "content/contact.json"
+        fields:
+          - { label: "Hero koptitel", name: "hero_titel", widget: "string" }
+          - { label: "Hero ondertekst", name: "hero_tekst", widget: "text" }
+          - { label: "Formspree formulier ID", name: "formspree_id", widget: "string", hint: "Maak gratis account op formspree.io → New Form → kopieer het ID (bijv. xrgvpkqb)" }
