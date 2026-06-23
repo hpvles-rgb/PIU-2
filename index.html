@@ -538,7 +538,69 @@ async function submitForm(){
   btn.textContent='Verstuur Aanvraag \u2192';btn.disabled=false;
 }
 
-renderShell();buildHome();buildOver();buildDiensten();buildPortfolio();buildContact();showPage('home');
+
+// Load content from JSON files (written by CMS) then render
+async function loadAndRender() {
+  try {
+    // Fetch all content files in parallel
+    const [ins, home, over, diensten, contact] = await Promise.all([
+      fetch('/content/instellingen.json').then(r => r.json()),
+      fetch('/content/home.json').then(r => r.json()),
+      fetch('/content/over.json').then(r => r.json()),
+      fetch('/content/diensten.json').then(r => r.json()),
+      fetch('/content/contact.json').then(r => r.json()),
+    ]);
+
+    // Load portfolio markdown files
+    const portFiles = [
+      'behuizing-pa66','sls-prototype-pa12','waterpomp-assemblage',
+      'matrijs-1x8','automotive-clip-pp','medische-behuizing-abs'
+    ];
+    const portfolio = [];
+    for (const f of portFiles) {
+      try {
+        const txt = await fetch('/content/portfolio/' + f + '.md').then(r => r.text());
+        const m = txt.match(/^---\n([\s\S]*?)\n---/);
+        if (m) {
+          const obj = {};
+          m[1].split('\n').forEach(line => {
+            const [k, ...v] = line.split(':');
+            if (k) {
+              let val = v.join(':').trim().replace(/^"|"$/g,'');
+              if (val === 'true') val = true;
+              if (val === 'false') val = false;
+              obj[k.trim()] = val;
+            }
+          });
+          if (obj.published !== false) portfolio.push(obj);
+        }
+      } catch(e) {}
+    }
+
+    // Override hardcoded data with live CMS data
+    D.instellingen = ins;
+    D.home = home;
+    D.over = over;
+    D.diensten = diensten;
+    D.contact = contact;
+    if (portfolio.length > 0) D.portfolio = portfolio;
+
+  } catch(err) {
+    console.log('Using default content (CMS files not found):', err.message);
+  }
+
+  // Render with whatever data we have (live or fallback)
+  renderShell();
+  buildHome();
+  buildOver();
+  buildDiensten();
+  buildPortfolio();
+  buildContact();
+  showPage('home');
+}
+
+loadAndRender();
+
 
 /* ── Netlify Identity: handle invite & password-reset tokens ── */
 if(window.location.hash&&(window.location.hash.includes('invite_token')||window.location.hash.includes('recovery_token')||window.location.hash.includes('confirmation_token'))){
