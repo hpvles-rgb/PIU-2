@@ -4,16 +4,40 @@
   "verhaal_titel": "Van Garagebedrijf tot Industriële Partner",
   "verhaal_tekst": "Plastic Industrie Utrecht BV werd opgericht vanuit een passie voor precisie en de overtuiging dat ook kleinere bedrijven recht hebben op dezelfde kwaliteit als grote corporates.",
   "tijdlijn": [
-    { "titel": "Oprichting in Utrecht", "tekst": "Gestart met twee spuitgietmachines en een focus op kleine, nauwkeurige series voor de machinebouwindustrie." },
-    { "titel": "Uitbreiding matrijzenmakerij", "tekst": "Eigen toolingafdeling opgezet — kortere doorlooptijden en betere kwaliteitscontrole van gereedschappen." },
-    { "titel": "Introductie SLS 3D printen", "tekst": "Investering in SLS-technologie versnelt de prototypefase voor klanten en verkort de time-to-market aanzienlijk." },
-    { "titel": "Vandaag — 500+ klanten in de Benelux", "tekst": "Van medische apparatuur tot automotive — wij leveren technische kunststofoplossingen voor elke sector." }
+    {
+      "titel": "Oprichting in Utrecht",
+      "tekst": "Gestart met twee spuitgietmachines en een focus op kleine, nauwkeurige series voor de machinebouwindustrie."
+    },
+    {
+      "titel": "Uitbreiding matrijzenmakerij",
+      "tekst": "Eigen toolingafdeling opgezet — kortere doorlooptijden en betere kwaliteitscontrole van gereedschappen."
+    },
+    {
+      "titel": "Introductie SLS 3D printen",
+      "tekst": "Investering in SLS-technologie versnelt de prototypefase voor klanten en verkort de time-to-market aanzienlijk."
+    },
+    {
+      "titel": "Vandaag — 50+ klanten in de Benelux",
+      "tekst": "Van medische apparatuur tot automotive — wij leveren technische kunststofoplossingen voor elke sector."
+    }
   ],
   "missie_quote": "Wij geloven dat de kwaliteit van een kunststof component nooit afhankelijk mag zijn van de ordergrootte. Of u nu 10 of 10.000 stuks afneemt — onze standaard is altijd hetzelfde: perfect.",
   "punten": [
-    { "titel": "🔧 Eigen Matrijzenmakerij", "tekst": "Geen extern toolingbedrijf — wij ontwerpen en produceren onze matrijzen zelf. Snellere aanpassingen en lagere kosten." },
-    { "titel": "📦 Kleine Series Specialist", "tekst": "Minimaal 1 stuk mogelijk. Wij zijn gespecialiseerd in kleine en middelgrote series waar anderen 'nee' verkopen." },
-    { "titel": "⚡ Snelle Doorlooptijd", "tekst": "Van offerte tot eerste productiedeel in recordtijd. Gestroomlijnde processen elimineren onnodige wachttijd." },
-    { "titel": "🤝 Technisch Meedenken", "tekst": "Ons engineering team analyseert uw ontwerp proactief op verbeterpunten in maakbaarheid en kostenbesparing." }
+    {
+      "titel": "🔧 Eigen Matrijzenmakerij",
+      "tekst": "Geen extern toolingbedrijf — wij ontwerpen en produceren onze matrijzen zelf. Snellere aanpassingen en lagere kosten."
+    },
+    {
+      "titel": "📦 Kleine Series Specialist",
+      "tekst": "Minimaal 1 stuk mogelijk. Wij zijn gespecialiseerd in kleine en middelgrote series waar anderen 'nee' verkopen."
+    },
+    {
+      "titel": "⚡ Snelle Doorlooptijd",
+      "tekst": "Van offerte tot eerste productiedeel in recordtijd. Gestroomlijnde processen elimineren onnodige wachttijd."
+    },
+    {
+      "titel": "🤝 Technisch Meedenken",
+      "tekst": "Ons engineering team analyseert uw ontwerp proactief op verbeterpunten in maakbaarheid en kostenbesparing."
+    }
   ]
 }
