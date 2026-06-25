@@ -33,7 +33,7 @@
       "label": "Jaar ervaring"
     },
     {
-      "cijfer": "500+",
+      "cijfer": "50+",
       "label": "Tevreden klanten"
     },
     {
@@ -47,20 +47,20 @@
   ],
   "testimonials": [
     {
-      "naam": "Marc van der Berg",
-      "functie": "Inkoopdirecteur, TechFlow Systems",
+      "naam": "M. van der Berg",
+      "functie": "Inkoopdirecteur",
       "quote": "PIU levert consistent hoge kwaliteit met doorlooptijden die elke andere leverancier overtreft. Onze go-to voor complexe kunststof componenten.",
       "initialen": "MV"
     },
     {
-      "naam": "Sandra Evers",
-      "functie": "R&D Manager, MedDevice NL",
+      "naam": "S. Evers",
+      "functie": "R&D Manager",
       "quote": "De combinatie van SLS printen en spuitgieten onder één dak bespaart ons maanden in de ontwikkelcyclus. Uitzonderlijke technische kennis.",
       "initialen": "SE"
     },
     {
-      "naam": "Joost Kramer",
-      "functie": "Operations Lead, Deltatech BV",
+      "naam": "J. Kramer",
+      "functie": "Operations Lead",
       "quote": "Kleine series, snelle levertijden, eerlijke prijs. PIU is de partner die wij al jaren zochten. Geen verrassingen, altijd op tijd.",
       "initialen": "JK"
     }
