@@ -1,7 +1,7 @@
 ---
 title: Diverse producten voor een grote speler
 categorie: Spuitgieten
-afbeelding: /project-matrijs.jpg
+afbeelding: /project-spuitgieten.png
 beschrijving: " test"
 published: false
 ---
