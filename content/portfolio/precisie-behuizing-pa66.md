@@ -1,7 +1,7 @@
 ---
-title: Precisie Behuizing PA66
+title: Diverse producten voor een grote speler
 categorie: Spuitgieten
-afbeelding: https://images.unsplash.com/photo-1563770660941-20978e870e26?w=600&q=80
-beschrijving: " Dunwandige technische behuizing voor elektronische schakelaar."
-published: true
+afbeelding: https://www.google.com/url?sa=t&source=web&rct=j&url=https%3A%2F%2Fpanamsbk.com%2Fproduct%2Fmylaps-transponder%2F&ved=0CBYQjRxqFwoTCPD2_KGtopUDFQAAAAAdAAAAABAF&opi=89978449
+beschrijving: " test"
+published: false
 ---
