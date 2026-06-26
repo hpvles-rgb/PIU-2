@@ -291,7 +291,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,92,26,.15);padding:4
       <p id="f-kvk">&copy; 2026 Plastic Industrie Utrecht BV</p>
       <div class="footer-bottom-links">
         <a href="#" onclick="openPrivacyModal();return false;">Privacybeleid</a>
-        <a href="#">Algemene Voorwaarden</a>
+        <a href="#" onclick="openAVModal();return false;">Algemene Voorwaarden</a>
       </div>
     </div>
   </div>
@@ -679,6 +679,44 @@ function closePrivacy(e) {
 // Close on Escape key
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closePrivacyModal(); });
 
+</script>
+<!-- Algemene Voorwaarden Modal -->
+<div id="av-modal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(10,36,99,0.7);backdrop-filter:blur(4px);padding:2rem;overflow-y:auto;" onclick="closeAV(event)">
+  <div style="max-width:680px;margin:2rem auto;background:#fff;border-radius:12px;padding:3rem;position:relative;box-shadow:0 24px 64px rgba(10,36,99,0.25);" onclick="event.stopPropagation()">
+    <button onclick="closeAVModal()" style="position:absolute;top:1.25rem;right:1.25rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#7A8FA6;line-height:1;">&times;</button>
+    <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.6rem;font-weight:700;color:#0A2463;margin-bottom:2rem;">Algemene Voorwaarden Plastic Industrie &lsquo;Utrecht&rsquo; BV</h2>
+    <div style="display:flex;flex-direction:column;gap:1.25rem;font-size:0.95rem;line-height:1.7;color:#4A5E72;">
+      <p><strong style="color:#0A2463;">1.</strong> Deze voorwaarden zijn van toepassing op alle met ons gesloten overeenkomsten, tenzij afwijking hiervan schriftelijk is overeengekomen.</p>
+      <p><strong style="color:#0A2463;">2.</strong> Alle aanbiedingen zijn vrijblijvend, tenzij deze een termijn voor aanvaarding bevatten. Indien een aanbieding een vrijblijvend aanbod bevat en dit wordt aanvaard, hebben wij het recht het aanbod binnen twee werkdagen na ontvangst van de aanvaarding te herroepen. Een overeenkomst met ons komt tot stand wanneer wij binnen acht dagen nadat wij de opdracht tot levering hebben ontvangen, deze bevestigen danwel met de uitvoering van de opdracht beginnen.</p>
+      <p><strong style="color:#0A2463;">3.</strong> Prijzen zijn exclusief BTW, verpakkings- en verzendkosten. Prijsverhogingen tengevolge van kostprijsfactoren tussen het moment van totstandkoming van de overeenkomst en uitvoering daarvan, kunnen door ons worden doorberekend, in welk geval u gerechtigd bent de overeenkomst binnen vijf dagen na kennisneming van de doorberekening bij aangetekend schrijven te ontbinden. Ingeval van ontbinding op welke grond ook, dienen door u de kosten voor het vervaardigen van verpakkingsmateriaal en dergelijke te worden vergoed.</p>
+      <p><strong style="color:#0A2463;">4.</strong> Opgegeven levertijden zullen nimmer zijn te beschouwen als fatale termijn, tenzij uitdrukkelijk anders is overeengekomen. Bij niet tijdige levering dienen wij derhalve schriftelijk in gebreke te worden gesteld. Levering geschiedt af ons magazijn. Verzending ook bij franco levering geschiedt op uw risico. Bij niet tijdige afname geschiedt opslag bij ons voor uw rekening en risico.</p>
+      <p><strong style="color:#0A2463;">5.</strong> Betaling dient te geschieden binnen dertig dagen na factuurdatum. Bij niet-betaling binnen deze termijn bent u een rente verschuldigd van 1,5% per maand, of gedeelte van de maand, zonder dat enige ingebrekestelling is vereist. Buitengerechtelijke incassokosten bedragen 15% van de hoofdsom met een minimum van &euro;&nbsp;150,&mdash; en zij door u verschuldigd.</p>
+      <p><strong style="color:#0A2463;">6.</strong> Reclames dienen te geschieden binnen acht dagen na levering, bij gebreke waarvan het geleverde wordt geacht volledig aan de inhoud van de overeenkomst te hebben beantwoord.</p>
+      <p><strong style="color:#0A2463;">7.</strong> De overeenkomst kan door ons geheel of ten dele worden ontbonden, dan wel kan de nakoming van de overeenkomst door ons geheel of ten dele worden opgeschort in geval van overmacht, waaronder tevens worden begrepen bedrijfsstakingen, en/of de niet (tijdige) levering aan ons. Bij te lange duur van de opschorting bent u gerechtigd tot ontbinding van de overeenkomst middels aangetekend schrijven.</p>
+      <p><strong style="color:#0A2463;">8.</strong> De eigendom van het geleverde blijft bij ons tot volledige betaling heeft plaatsgevonden. Het risico van het geleverde gaat bij de levering op u over.</p>
+      <p><strong style="color:#0A2463;">9.</strong> Indien door u matrijzen bij ons in bewaring worden gegeven, blijven deze voor uw risico, zodat u dient zorg te dragen voor verzekering van deze matrijzen tegen brand en diefstal.</p>
+      <p><strong style="color:#0A2463;">10.</strong> Op al onze overeenkomsten is het Nederlands Recht van toepassing. Geschillen worden uitsluitend beoordeeld door de bevoegde rechter in het arrondissement Utrecht of, naar onze keuze, in het land van de afnemer.</p>
+      <p><strong style="color:#0A2463;">11.</strong> De voorwaarden zijn gedeponeerd ter griffie van de arrondissementsrechtbank te Utrecht en bij de Kamer van Koophandel.</p>
+    </div>
+    <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid #C5D0DC;">
+      <button onclick="closeAVModal()" style="background:#E8A020;color:#fff;border:none;padding:0.75rem 2rem;border-radius:4px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:0.95rem;cursor:pointer;">Sluiten</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function openAVModal() {
+  document.getElementById('av-modal').style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
+function closeAVModal() {
+  document.getElementById('av-modal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+function closeAV(e) {
+  if (e.target === document.getElementById('av-modal')) closeAVModal();
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAVModal(); });
 </script>
 </body>
 </html>
