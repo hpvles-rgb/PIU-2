@@ -57,8 +57,13 @@ nav a:hover,nav a.active{color:#fff;background:rgba(255,255,255,0.08)}
 .btn-white:hover{background:rgba(255,255,255,.92);transform:translateY(-2px)}
 .slash-divider{width:3px;height:42px;background:var(--orange);transform:skewX(-14deg);border-radius:2px;margin:1.5rem 0}
 .hero{position:relative;min-height:100vh;background:var(--navy);display:flex;align-items:center;overflow:hidden;padding-top:68px}
-.hero::after{content:'';position:absolute;bottom:0;right:-5%;width:55%;height:100%;background:url('/hero.jpg') center/cover no-repeat;mask-image:linear-gradient(to left,rgba(0,0,0,.5) 0%,transparent 85%);-webkit-mask-image:linear-gradient(to left,rgba(0,0,0,.5) 0%,transparent 85%)}
-.hero-content{position:relative;z-index:2;max-width:600px;padding:5rem 0}
+.hero-video-bg{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;overflow:hidden}
+.hero-video-bg iframe{position:absolute;top:50%;left:50%;width:100vw;height:56.25vw;min-height:100vh;min-width:177.78vh;transform:translate(-50%,-50%);pointer-events:none}
+.hero-video-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,36,99,0.95) 0%,rgba(10,36,99,0.75) 45%,rgba(10,36,99,0.35) 100%);z-index:1}
+.hero{position:relative;min-height:100vh;background:var(--navy);display:flex;align-items:center;overflow:hidden;padding-top:68px}
+.hero-video-bg{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;overflow:hidden}
+.hero-video-bg iframe{position:absolute;top:50%;left:50%;width:100vw;height:56.25vw;min-height:100vh;min-width:177.78vh;transform:translate(-50%,-50%);pointer-events:none}
+.hero-video-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,36,99,0.95) 0%,rgba(10,36,99,0.75) 45%,rgba(10,36,99,0.35) 100%);z-index:1}.hero-content{position:relative;z-index:2;max-width:600px;padding:5rem 0}
 .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,92,26,.12);border:1px solid rgba(255,92,26,.32);color:rgba(255,255,255,.82);font-size:.78rem;font-weight:500;padding:.4rem .9rem;border-radius:100px;margin-bottom:1.5rem}
 .hero h1{color:#fff;margin-bottom:1.25rem}
 .hero p{font-size:1.08rem;margin-bottom:2rem;color:rgba(255,255,255,.72);max-width:480px}
@@ -325,7 +330,10 @@ function renderShell(){
 function buildHome(){
   const h=D.home,d=D.diensten,hero=h.hero,cta=h.cta;
   $('page-home').innerHTML=`
-<section class="hero"><div class="container"><div class="hero-content">
+<section class="hero">
+<div class="hero-video-bg"><iframe src="https://www.youtube.com/embed/a8HQG2PUPik?autoplay=1&mute=1&loop=1&playlist=a8HQG2PUPik&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1" frameborder="0" allow="autoplay; encrypted-media" title="PIU achtergrondvideo"></iframe></div>
+<div class="hero-video-overlay"></div>
+<div class="container" style="position:relative;z-index:2;"><div class="hero-content">
   <div class="hero-badge">${e(hero.badge)}</div>
   <h1>${e(hero.titel)}</h1>
   <p>${e(hero.subtitel)}</p>
