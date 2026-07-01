@@ -1,1 +1,6 @@
-contact-en.json
+{
+  "hero_titel": "Tell us about your project",
+  "hero_tekst": "Whether you have a drawing or just an idea — we are happy to think along. Response guaranteed within 1 business day.",
+  "form_email": "info@piu.nl",
+  "formspree_id": "JOUW_FORMSPREE_ID"
+}
