@@ -181,8 +181,7 @@ textarea{resize:vertical;min-height:130px}
 .info-text strong{display:block;font-size:.82rem;font-weight:600;margin-bottom:.25rem}
 .info-text span{font-size:.88rem;color:#4A5E72;line-height:1.6}
 .social-links{display:flex;gap:.75rem;margin-top:2rem}
-.social-btn{width:52px;height:52px;border-radius:8px;background:#0A66C2
-;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;transition:all var(--transition);text-decoration:none;color:#fff}
+.social-btn{width:52px;height:52px;border-radius:8px;background:#0A66C2;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;transition:none;text-decoration:none;color:#fff}
 .social-btn:hover{background:#0A66C2;color:#fff;}
 .map-block{width:100%;height:240px;border-radius:var(--radius-lg);overflow:hidden;margin-top:2rem}
 .map-block iframe{width:100%;height:100%;border:0}
@@ -242,6 +241,18 @@ footer{background:var(--navy);border-top:1px solid rgba(255,92,26,.15);padding:4
 .piu-3d-icon{width:64px;height:64px;margin-bottom:1.5rem;transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1);filter:drop-shadow(2px 4px 8px rgba(10,36,99,0.2))}
 .benefit-card:hover .piu-3d-icon{transform:translateY(-6px) rotateX(8deg) rotateY(-8deg);filter:drop-shadow(4px 8px 16px rgba(232,160,32,0.3))}
 .piu-3d-icon svg{width:100%;height:100%}
+
+/* Language switch */
+.lang-switch{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,0.1);border-radius:4px;padding:2px;flex-shrink:0}
+.lang-btn{font-family:'Plus Jakarta Sans',sans-serif;font-size:.75rem;font-weight:700;padding:.28rem .6rem;border-radius:3px;border:none;cursor:pointer;background:transparent;color:rgba(255,255,255,0.6);transition:all var(--transition)}
+.lang-btn.active{background:var(--orange);color:#fff}
+
+
+/* Language switch */
+.lang-switch{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,0.1);border-radius:4px;padding:2px;flex-shrink:0}
+.lang-btn{font-family:'Plus Jakarta Sans',sans-serif;font-size:.75rem;font-weight:700;padding:.28rem .6rem;border-radius:3px;border:none;cursor:pointer;background:transparent;color:rgba(255,255,255,0.6);transition:all var(--transition)}
+.lang-btn.active{background:var(--orange);color:#fff}
+
 </style>
 </head>
 <body>
@@ -259,7 +270,11 @@ footer{background:var(--navy);border-top:1px solid rgba(255,92,26,.15);padding:4
       <a data-page="portfolio" onclick="showPage('portfolio')">Portfolio</a>
       <a data-page="contact"   onclick="showPage('contact')">Contact</a>
     </nav>
-    <button class="btn-cta-header" onclick="showPage('contact')">Offerte Aanvragen</button>
+    <button class="btn-cta-header" id="header-cta-btn" onclick="showPage('contact')">Offerte Aanvragen</button>
+    <div class="lang-switch">
+      <button class="lang-btn active" id="btn-nl" onclick="setLang('nl')">NL</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
     <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -272,7 +287,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,92,26,.15);padding:4
   <a data-page="diensten"  onclick="showPage('diensten')">Diensten</a>
   <a data-page="portfolio" onclick="showPage('portfolio')">Portfolio</a>
   <a data-page="contact"   onclick="showPage('contact')">Contact</a>
-  <button class="mob-cta" onclick="showPage('contact')">Offerte Aanvragen &rarr;</button>
+  <button class="mob-cta" id="mob-cta-btn" onclick="showPage('contact')">Offerte Aanvragen &rarr;</button>
 </nav>
 
 <main>
@@ -281,13 +296,6 @@ footer{background:var(--navy);border-top:1px solid rgba(255,92,26,.15);padding:4
   <div class="page" id="page-diensten"></div>
   <div class="page" id="page-portfolio"></div>
   <div class="page" id="page-contact"></div>
-
-<!-- Hidden SVG icon definitions -->
-<div style="display:none">
-  <div id="piu-icon-1"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 20 L32 12 L56 20 L56 44 L32 52 L8 44 Z" fill="#0A2463" stroke="#1a3a7a" stroke-width="0.5"/><path d="M8 20 L32 12 L56 20 L32 28 Z" fill="#0D3580" stroke="#1a4090" stroke-width="0.5"/><path d="M8 20 L8 44 L32 52 L32 28 Z" fill="#061840" stroke="#0d2a6a" stroke-width="0.5"/><path d="M56 20 L56 44 L32 52 L32 28 Z" fill="#0A2463" stroke="#1a3a7a" stroke-width="0.5"/><path d="M32 12 L32 28 L8 20" stroke="#E8A020" stroke-width="1.5" stroke-linecap="round"/><path d="M32 28 L56 20" stroke="#E8A020" stroke-width="1" stroke-linecap="round" opacity="0.6"/><path d="M32 28 L32 52" stroke="#E8A020" stroke-width="1" stroke-linecap="round" opacity="0.4"/><path d="M20 24 L32 20 L44 24" stroke="#E8A020" stroke-width="0.8" opacity="0.5" stroke-linecap="round"/></svg></div>
-  <div id="piu-icon-2"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 16 L32 8 L52 16 L52 36 L32 44 L12 36 Z" fill="#0D3580"/><path d="M12 16 L32 8 L52 16 L32 24 Z" fill="#1a4090"/><path d="M12 16 L12 36 L32 44 L32 24 Z" fill="#061840"/><path d="M52 16 L52 36 L32 44 L32 24 Z" fill="#0A2463"/><path d="M22 20 L32 16 L42 20 L42 30 L32 34 L22 30 Z" fill="#061840" opacity="0.8"/><path d="M22 20 L32 16 L42 20 L32 24 Z" fill="#0d2a6a" opacity="0.6"/><circle cx="24" cy="38" r="2" fill="#E8A020"/><circle cx="32" cy="41" r="2" fill="#E8A020"/><circle cx="40" cy="38" r="2" fill="#E8A020"/><path d="M32 8 L32 24" stroke="#E8A020" stroke-width="1.5" stroke-linecap="round"/><path d="M22 20 L32 24 L42 20" stroke="#E8A020" stroke-width="1" opacity="0.7" stroke-linecap="round"/></svg></div>
-  <div id="piu-icon-3"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 22 L32 14 L54 22 L54 42 L32 50 L10 42 Z" fill="#0A2463"/><path d="M10 22 L32 14 L54 22 L32 30 Z" fill="#0D3580"/><path d="M10 22 L10 42 L32 50 L32 30 Z" fill="#061840"/><path d="M54 22 L54 42 L32 50 L32 30 Z" fill="#08204f"/><rect x="20" y="24" width="4" height="8" rx="1" fill="#E8A020" opacity="0.9"/><rect x="28" y="24" width="4" height="8" rx="1" fill="#E8A020" opacity="0.7"/><rect x="36" y="24" width="4" height="8" rx="1" fill="#E8A020" opacity="0.9"/><path d="M10 30 L32 38 L54 30" stroke="#E8A020" stroke-width="0.8" opacity="0.4" stroke-linecap="round"/><path d="M32 14 L32 30" stroke="#E8A020" stroke-width="1.5" stroke-linecap="round"/><path d="M10 22 L32 30 L54 22" stroke="#E8A020" stroke-width="1" opacity="0.6" stroke-linecap="round"/></svg></div>
-</div>
 
 <!-- Hidden 3D SVG icon definitions - referenced by JS -->
 <div style="display:none" aria-hidden="true">
@@ -304,13 +312,13 @@ footer{background:var(--navy);border-top:1px solid rgba(255,92,26,.15);padding:4
         <div class="logo" onclick="showPage('home')" style="cursor:pointer">
           <img src="/logo.png" alt="Plastic Industrie Utrecht BV" style="height:56px;width:auto;object-fit:contain;filter:brightness(0) invert(1);display:block;">
         </div>
-        <p>Specialist in spuitgieten, matrijzen en SLS 3D printen voor technische kunststof componenten.</p>
+        <p id="footer-desc-text">Specialist in spuitgieten, matrijzen en SLS 3D printen voor technische kunststof componenten.</p>
         <div class="footer-social">
           <a id="soc-li" href="#" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
         </div>
       </div>
       <div class="footer-col">
-        <h5>Navigatie</h5>
+        <h5 id="footer-nav-title">Navigatie</h5>
         <ul>
           <li><a onclick="showPage('home')">Home</a></li>
           <li><a onclick="showPage('over')">Over Ons</a></li>
@@ -320,7 +328,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,92,26,.15);padding:4
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Diensten</h5>
+        <h5 id="footer-svc-title">Diensten</h5>
         <ul>
           <li><a onclick="showPage('diensten')">Spuitgieten</a></li>
           <li><a onclick="showPage('diensten')">Matrijzen &amp; Tooling</a></li>
@@ -331,21 +339,21 @@ footer{background:var(--navy);border-top:1px solid rgba(255,92,26,.15);padding:4
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Contact</h5>
+        <h5 id="footer-con-title">Contact</h5>
         <div class="footer-contact-item" id="f-adres">&#128205;</div>
         <div class="footer-contact-item" id="f-tel">&#128222;</div>
         <div class="footer-contact-item" id="f-email">&#9993;&#65039;</div>
-        <div class="footer-contact-item">&#128336; Ma&ndash;Vr 08:00&ndash;17:30</div>
+        <div class="footer-contact-item">&#128336; <span id="footer-hours">Ma&ndash;Vr 08:00&ndash;17:30</span></div>
         <div style="margin-top:1.25rem">
-          <button class="btn btn-primary" onclick="showPage('contact')" style="font-size:.82rem;padding:.55rem 1.2rem">Offerte Aanvragen &rarr;</button>
+          <button class="btn btn-primary" id="footer-cta-btn" onclick="showPage('contact')" style="font-size:.82rem;padding:.55rem 1.2rem">Offerte Aanvragen &rarr;</button>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
       <p id="f-kvk">&copy; 2026 Plastic Industrie Utrecht BV</p>
       <div class="footer-bottom-links">
-        <a href="#" onclick="openPrivacyModal();return false;">Privacybeleid</a>
-        <a href="#" onclick="openAVModal();return false;">Algemene Voorwaarden</a>
+        <a href="#" onclick="openPrivacyModal();return false;" id="footer-privacy-link">Privacybeleid</a>
+        <a href="#" onclick="openAVModal();return false;" id="footer-av-link">Algemene Voorwaarden</a>
       </div>
     </div>
   </div>
@@ -357,6 +365,7 @@ const $ = id => document.getElementById(id);
 const e = s => String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 
 function showPage(n){
+  window._currentPage = n;
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   const t=$('page-'+n); if(t)t.classList.add('active');
   document.querySelectorAll('nav a,.mobile-menu a').forEach(a=>a.classList.toggle('active',a.dataset.page===n));
@@ -392,15 +401,15 @@ function buildHome(){
   </div>
 </div></div></section>
 <div class="trust-strip"><div class="container"><div class="trust-inner">
-  <div class="trust-item"><span class="piu-icon-sm"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8A020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>Levertijd vanaf 5 werkdagen</div>
-  <div class="trust-item"><span class="piu-icon-sm"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8A020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></span>Eigen matrijzen &amp; gereedschappen</div>
-  <div class="trust-item"><span class="piu-icon-sm"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8A020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></span>Kleine series welkom</div>
-  <div class="trust-item"><span class="piu-icon-sm"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8A020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></span>25+ jaar ervaring</div>
+  <div class="trust-item"><span class="piu-icon-sm"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8A020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>${t('Levertijd vanaf 5 werkdagen','Delivery from 5 working days')}</div>
+  <div class="trust-item"><span class="piu-icon-sm"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8A020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></span>${t('Eigen matrijzen & gereedschappen','In-house moulds & tooling')}</div>
+  <div class="trust-item"><span class="piu-icon-sm"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8A020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></span>${t('Kleine series welkom','Small series welcome')}</div>
+  <div class="trust-item"><span class="piu-icon-sm"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8A020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></span>${t('25+ jaar ervaring','25+ years experience')}</div>
   <div class="trust-item"><span class="piu-icon-sm"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8A020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>Made in Utrecht</div>
 </div></div></div>
 <section class="section benefits"><div class="container">
-  <span class="eyebrow">Waarom kiezen voor PIU?</span>
-  <h2>Technische kwaliteit zonder compromissen</h2>
+  <span class="eyebrow">${t('Waarom kiezen voor PIU?','Why choose PIU?')}</span>
+  <h2>${t('Technische kwaliteit zonder compromissen','Technical quality without compromise')}</h2>
   <div class="benefits-grid">${h.voordelen.map((v,i)=>{
   const svgEl=document.getElementById('piu-icon-'+(i%3+1));
   const iconHtml=svgEl?svgEl.innerHTML:'';
@@ -408,30 +417,31 @@ function buildHome(){
 }).join('')}</div>
 </div></section>
 <section class="section services-preview"><div class="container">
-  <span class="eyebrow">Wat wij doen</span><h2>Onze Kernactiviteiten</h2>
+  <span class="eyebrow">${t('Wat wij doen','What we do')}</span><h2>${t('Onze Kernactiviteiten','Our Core Activities')}</h2>
   <div class="svc-grid">${d.diensten.slice(0,3).map(s=>`<div class="svc-card" onclick="showPage('diensten')"><div class="svc-card-img"><img src="${e(s.afbeelding)}" alt="${e(s.titel)}" loading="lazy"></div><div class="svc-card-body"><div class="tag">${e(s.tag)}</div><h3>${e(s.titel)}</h3><p>${e(s.beschrijving)}</p></div></div>`).join('')}</div>
-  <div style="text-align:center;margin-top:2.5rem"><button class="btn btn-outline-dark" onclick="showPage('diensten')">Alle Diensten Bekijken &rarr;</button></div>
+  <div style="text-align:center;margin-top:2.5rem"><button class="btn btn-outline-dark" onclick="showPage('diensten')">${t('Alle Diensten Bekijken','View All Services')} &rarr;</button></div>
 </div></section>
 <section class="section testimonials"><div class="container">
-  <span class="eyebrow" style="color:var(--orange)">Wat klanten zeggen</span>
-  <h2 style="color:#fff;margin-bottom:0">Vertrouwd door Techbedrijven</h2>
+  <span class="eyebrow" style="color:var(--orange)">${t('Wat klanten zeggen','What customers say')}</span>
+  <h2 style="color:#fff;margin-bottom:0">${t('Vertrouwd door Techbedrijven','Trusted by Tech Companies')}</h2>
   <div class="testi-grid">${h.testimonials.map(t=>`<div class="testi-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>&ldquo;${e(t.quote)}&rdquo;</blockquote><div class="testi-author"><div class="avatar">${e(t.initialen)}</div><div class="author-info"><strong>${e(t.naam)}</strong><span>${e(t.functie)}</span></div></div></div>`).join('')}</div>
 </div></section>
 <section class="section about-preview"><div class="container"><div class="about-inner">
   <div class="about-img"><img src="/over-ons.png" alt="Productiehal PIU" loading="lazy"></div>
   <div>
-    <span class="eyebrow">Over ons</span>
+    <span class="eyebrow">${t('Over ons','About us')}</span>
     <h2>${e(h.over.titel)}</h2>
     <div class="slash-divider"></div>
     <p>${e(h.over.tekst)}</p>
     <div class="stats-grid">${h.stats.map(s=>`<div class="stat-box"><strong>${e(s.cijfer)}</strong><span>${e(s.label)}</span></div>`).join('')}</div>
-    <button class="btn btn-primary" onclick="showPage('over')">Meer Over Ons &rarr;</button>
+    <button class="btn btn-primary" onclick="showPage('over')">${t('Meer Over Ons','More About Us')} &rarr;</button>
   </div>
 </div></div></section>
 <section class="cta-strip"><div class="container">
-  <span class="eyebrow" style="color:rgba(255,255,255,.65)">Klaar om te starten?</span>
-  <h2>${e(cta.titel)}</h2><p>${e(cta.tekst)}</p>
-  <button class="btn btn-white" onclick="showPage('contact')">${e(cta.knop)} &rarr;</button>
+  <span class="eyebrow" style="color:rgba(255,255,255,.65)">${t('Klaar om te starten?','Ready to get started?')}</span>
+  <h2>${t(e(cta.titel),'Request a free quote today')}</h2>
+  <p>${t(e(cta.tekst),'Upload your drawing or describe your project. We respond within one business day.')}</p>
+  <button class="btn btn-white" onclick="showPage('contact')">${t(e(cta.knop),'Request Quote')} &rarr;</button>
 </div></section>`;
 }
 
@@ -439,29 +449,30 @@ function buildOver(){
   const o=D.over;
   $('page-over').innerHTML=`
 <section class="page-hero"><div class="container">
-  <span class="eyebrow">Over Plastic Industrie Utrecht BV</span>
-  <h1>${e(o.hero_titel)}</h1><p>${e(o.hero_tekst)}</p>
+  <span class="eyebrow">${t('Over Plastic Industrie Utrecht BV','About Plastic Industrie Utrecht BV')}</span>
+  <h1>${t(e(o.hero_titel),'Craftsmanship. Precision. Partnership.')}</h1>
+  <p>${t(e(o.hero_tekst),'We are not an anonymous production supplier — we are a technical partner who thinks along, grows with you and always seeks the best solution for your specific challenge.')}</p>
 </div></section>
 <section class="section" style="background:var(--white)"><div class="container"><div class="story-inner">
   <div class="story-img"><img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80" alt="Maakindustrie Utrecht" loading="lazy"></div>
   <div>
-    <span class="eyebrow">Ons verhaal</span>
-    <h2>${e(o.verhaal_titel)}</h2>
+    <span class="eyebrow">${t('Ons verhaal','Our story')}</span>
+    <h2>${t(e(o.verhaal_titel),'From Garage Company to Industrial Partner')}</h2>
     <div class="slash-divider"></div>
     <p>${e(o.verhaal_tekst)}</p>
     <div class="timeline">${o.tijdlijn.map(t=>`<div class="tl-item"><div class="tl-dot"></div><div><h4>${e(t.titel)}</h4><p>${e(t.tekst)}</p></div></div>`).join('')}</div>
   </div>
 </div></div></section>
 <section class="mission-block"><div class="container"><div class="mission-inner">
-  <span class="eyebrow">Onze Missie</span>
-  <h2>Technische grenzen verleggen,<br>één onderdeel tegelijk</h2>
+  <span class="eyebrow">${t('Onze Missie','Our Mission')}</span>
+  <h2>${t('Technische grenzen verleggen,<br>één onderdeel tegelijk','Pushing technical boundaries,<br>one component at a time')}</h2>
   <blockquote class="mission-quote">&ldquo;${e(o.missie_quote)}&rdquo;</blockquote>
 </div></div></section>
 <section class="section" style="background:var(--white)"><div class="container">
-  <span class="eyebrow">Wat ons onderscheidt</span>
-  <h2 style="margin-bottom:2.5rem">Waarom PIU de juiste keuze is</h2>
+  <span class="eyebrow">${t('Wat ons onderscheidt','What sets us apart')}</span>
+  <h2 style="margin-bottom:2.5rem">${t('Waarom PIU de juiste keuze is','Why PIU is the right choice')}</h2>
   <div class="diff-grid">${o.punten.map(p=>`<div class="diff-card"><h4>${e(p.titel)}</h4><p>${e(p.tekst)}</p></div>`).join('')}</div>
-  <div style="text-align:center"><button class="btn btn-primary" onclick="showPage('contact')">Start een Gesprek &rarr;</button></div>
+  <div style="text-align:center"><button class="btn btn-primary" onclick="showPage('contact')">${t('Start een Gesprek','Start a Conversation')} &rarr;</button></div>
 </div></section>`;
 }
 
@@ -469,31 +480,32 @@ function buildDiensten(){
   const d=D.diensten;
   $('page-diensten').innerHTML=`
 <section class="page-hero"><div class="container">
-  <span class="eyebrow">Diensten &amp; Oplossingen</span>
-  <h1>${e(d.hero_titel)}</h1><p>${e(d.hero_tekst)}</p>
+  <span class="eyebrow">${t('Diensten &amp; Oplossingen','Services &amp; Solutions')}</span>
+  <h1>${t(e(d.hero_titel),'From Design to End Product')}</h1>
+  <p>${t(e(d.hero_tekst),'A comprehensive range from injection moulding and mould making to SLS 3D printing and assembly — all under one roof in Utrecht.')}</p>
 </div></section>
 <section class="section" style="background:var(--white)"><div class="container">
-  <span class="eyebrow">Wat wij aanbieden</span><h2>Onze Diensten</h2>
+  <span class="eyebrow">${t('Wat wij aanbieden','What we offer')}</span><h2>${t('Onze Diensten','Our Services')}</h2>
   <div class="svc-full-grid">${d.diensten.map(s=>`<div class="svc-full-card"><div class="svc-full-img"><img src="${e(s.afbeelding)}" alt="${e(s.titel)}" loading="lazy"></div><div class="svc-full-body"><div class="tag">${e(s.tag)}</div><h3>${e(s.titel)}</h3><p>${e(s.beschrijving)}</p><ul class="bullet-list">${s.bullets.map(b=>`<li>${e(b)}</li>`).join('')}</ul></div></div>`).join('')}</div>
 </div></section>
 <section class="section steps-section"><div class="container">
-  <span class="eyebrow">Hoe het werkt</span><h2>Van aanvraag tot afgeleverd product</h2>
+  <span class="eyebrow">${t('Hoe het werkt','How it works')}</span><h2>${t('Van aanvraag tot afgeleverd product','From request to delivered product')}</h2>
   <div class="steps-grid">
-    <div class="step-card"><div class="step-num">1</div><h4>Aanvraag &amp; Tekening</h4><p>Upload uw 3D-bestand of tekening. Wij beoordelen de maakbaarheid direct.</p></div>
-    <div class="step-card"><div class="step-num">2</div><h4>Offerte &amp; DFM</h4><p>Binnen 1 werkdag een gedetailleerde offerte inclusief gratis DFM-advies.</p></div>
-    <div class="step-card"><div class="step-num">3</div><h4>Productie &amp; Controle</h4><p>Matrijsproductie gevolgd door spuitgieten met volledige QC-inspectie.</p></div>
-    <div class="step-card"><div class="step-num">4</div><h4>Levering</h4><p>Snelle levering compleet met documenten en kwaliteitscertificaten.</p></div>
+    <div class="step-card"><div class="step-num">1</div><h4>${t('Aanvraag &amp; Tekening','Request &amp; Drawing')}</h4><p>${t('Upload uw 3D-bestand of tekening. Wij beoordelen de maakbaarheid direct.','Upload your 3D file or drawing. We assess manufacturability directly.')}</p></div>
+    <div class="step-card"><div class="step-num">2</div><h4>${t('Offerte &amp; DFM','Quote &amp; DFM')}</h4><p>${t('Binnen 1 werkdag een gedetailleerde offerte inclusief gratis DFM-advies.','Within 1 business day a detailed quote including free DFM advice.')}</p></div>
+    <div class="step-card"><div class="step-num">3</div><h4>${t('Productie &amp; Controle','Production &amp; Control')}</h4><p>${t('Matrijsproductie gevolgd door spuitgieten met volledige QC-inspectie.','Mould production followed by injection moulding with full QC inspection.')}</p></div>
+    <div class="step-card"><div class="step-num">4</div><h4>${t('Levering','Delivery')}</h4><p>${t('Snelle levering compleet met documenten en kwaliteitscertificaten.','Fast delivery complete with documents and quality certificates.')}</p></div>
   </div>
 </div></section>
 <section class="section" style="background:var(--white)"><div class="container">
-  <span class="eyebrow">Veelgestelde Vragen</span><h2>Vragen? Wij hebben antwoorden.</h2>
+  <span class="eyebrow">${t('Veelgestelde Vragen','Frequently Asked Questions')}</span><h2>${t('Vragen? Wij hebben antwoorden.','Questions? We have answers.')}</h2>
   <div class="faq-list">${d.faq.map((f,i)=>`<div class="faq-item" id="faq-${i}"><div class="faq-q" onclick="toggleFaq(${i})">${e(f.vraag)}</div><div class="faq-a">${e(f.antwoord)}</div></div>`).join('')}</div>
 </div></section>
 <section class="cta-strip"><div class="container">
-  <span class="eyebrow" style="color:rgba(255,255,255,.65)">Klaar om te starten?</span>
-  <h2>Stuur uw tekening, wij regelen de rest</h2>
-  <p>Gratis DFM-analyse bij elke offerte-aanvraag. Reactie binnen 1 werkdag.</p>
-  <button class="btn btn-white" onclick="showPage('contact')">Offerte Aanvragen &rarr;</button>
+  <span class="eyebrow" style="color:rgba(255,255,255,.65)">${t('Klaar om te starten?','Ready to get started?')}</span>
+  <h2>${t('Stuur uw tekening, wij regelen de rest','Send your drawing, we handle the rest')}</h2>
+  <p>${t('Gratis DFM-analyse bij elke offerte-aanvraag. Reactie binnen 1 werkdag.','Free DFM analysis with every quote request. Response within 1 business day.')}</p>
+  <button class="btn btn-white" onclick="showPage('contact')">${t('Offerte Aanvragen','Request Quote')} &rarr;</button>
 </div></section>`;
 }
 
@@ -502,12 +514,12 @@ function toggleFaq(i){document.getElementById('faq-'+i).classList.toggle('open')
 function buildPortfolio(){
   $('page-portfolio').innerHTML=`
 <section class="page-hero"><div class="container">
-  <span class="eyebrow">Portfolio &amp; Referenties</span>
-  <h1>Technische Producten<br>die Wij Realiseerden</h1>
-  <p>Een selectie van projecten voor klanten uit diverse sectoren.</p>
+  <span class="eyebrow">${t('Portfolio &amp; Referenties','Portfolio &amp; References')}</span>
+  <h1>${t('Technische Producten','Technical Products')}<br>${t('die Wij Realiseerden','We Have Realised')}</h1>
+  <p>${t('Een selectie van projecten voor klanten uit diverse sectoren.','A selection of projects for clients from various sectors.')}</p>
 </div></section>
 <div class="filter-bar"><div class="container"><div class="filter-inner">
-  <button class="filter-btn active" data-cat="all"          onclick="filterPort(this,'all')">Alles</button>
+  <button class="filter-btn active" data-cat="all"          onclick="filterPort(this,'all')">${t('Alles','All')}</button>
   <button class="filter-btn"        data-cat="Spuitgieten"  onclick="filterPort(this,'Spuitgieten')">Spuitgieten</button>
   <button class="filter-btn"        data-cat="SLS 3D Print" onclick="filterPort(this,'SLS 3D Print')">SLS 3D Print</button>
   <button class="filter-btn"        data-cat="Assemblage"   onclick="filterPort(this,'Assemblage')">Assemblage</button>
@@ -519,7 +531,7 @@ function buildPortfolio(){
 
 function renderPortCards(f){
   const ps=D.portfolio,vs=f==='all'?ps:ps.filter(p=>p.categorie===f);
-  $('port-grid').innerHTML=vs.map(p=>`<div class="port-card"><div class="port-img"><img src="${e(p.afbeelding)}" alt="${e(p.title)}" loading="lazy"></div><div class="port-body"><div class="tag">${e(p.categorie)}</div><h4>${e(p.title)}</h4><p>${e(p.beschrijving)}</p></div></div>`).join('')||'<p style="padding:3rem 0;color:#8A9BB0;">Geen projecten gevonden.</p>';
+  $('port-grid').innerHTML=vs.map(p=>`<div class="port-card"><div class="port-img"><img src="${e(p.afbeelding)}" alt="${e(p.title)}" loading="lazy"></div><div class="port-body"><div class="tag">${e(p.categorie)}</div><h4>${e(p.title)}</h4><p>${e(p.beschrijving)}</p></div></div>`).join('')||'<p style="padding:3rem 0;color:#8A9BB0;">${t('Geen projecten gevonden.','No projects found.')}</p>';
 }
 function filterPort(b,c){document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderPortCards(c)}
 
@@ -528,45 +540,45 @@ function buildContact(){
   const fa=c.formspree_id&&c.formspree_id!=='JOUW_FORMSPREE_ID'?`action="https://formspree.io/f/${c.formspree_id}" method="POST"`:'';
   $('page-contact').innerHTML=`
 <section class="page-hero"><div class="container">
-  <span class="eyebrow">Neem Contact Op</span>
-  <h1>${e(c.hero_titel)}</h1><p>${e(c.hero_tekst)}</p>
+  <span class="eyebrow">${t('Neem Contact Op','Get In Touch')}</span>
+  <h1>${t(e(c.hero_titel),'Tell us about your project')}</h1>
+  <p>${t(e(c.hero_tekst),'Whether you have a drawing or just an idea — we are happy to think along. Response guaranteed within 1 business day.')}</p>
 </div></section>
 <section class="section" style="background:var(--white)"><div class="container"><div class="contact-inner">
   <div class="contact-form">
   <img src="/injectionmolding.png" alt="Plastic Industrie Utrecht" style="width:100%;height:220px;object-fit:cover;border-radius:8px;margin-bottom:1.75rem;">
-    <h3>Stuur ons een bericht</h3>
+    <h3>${t('Stuur ons een bericht','Send us a message')}</h3>
     <div class="form-success" id="form-success"></div>
     <div class="form-error" id="form-error"></div>
     <form id="contact-form" ${fa}>
       <input type="hidden" name="_subject" value="Nieuwe aanvraag via piu.nl">
       <div class="form-row">
-        <div class="form-group"><label>Voornaam *</label><input type="text" id="f-naam" name="naam" placeholder="Jan" required></div>
-        <div class="form-group"><label>Achternaam *</label><input type="text" name="achternaam" placeholder="de Vries" required></div>
+        <div class="form-group"><label>${t('Voornaam *','First name *')}</label><input type="text" id="f-naam" name="naam" placeholder="Jan" required></div>
+        <div class="form-group"><label>${t('Achternaam *','Last name *')}</label><input type="text" name="achternaam" placeholder="de Vries" required></div>
       </div>
-      <div class="form-group"><label>E-mailadres *</label><input type="email" id="f-email" name="email" placeholder="jan@bedrijf.nl" required></div>
-      <div class="form-group"><label>Telefoonnummer</label><input type="tel" name="telefoon" placeholder="+31 6 00 00 00 00"></div>
+      <div class="form-group"><label>${t('E-mailadres *','Email address *')}</label><input type="email" id="f-email" name="email" placeholder="jan@bedrijf.nl" required></div>
+      <div class="form-group"><label>${t('Telefoonnummer','Phone number')}</label><input type="tel" name="telefoon" placeholder="+31 6 00 00 00 00"></div>
       <div class="form-group">
-        <label>Dienst van interesse</label>
+        <label>${t('Dienst van interesse','Service of interest')}</label>
         <select name="dienst" style="background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A9BB0' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E&quot;);background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem">
-          <option value="">Selecteer een dienst...</option>
+          <option value="">${t('${t('Selecteer een dienst...','Select a service...')}','Select a service...')}</option>
           <option>Spuitgieten</option><option>Matrijzen &amp; Tooling</option>
           <option>SLS 3D Printen</option><option>Assemblage &amp; Afwerking</option>
           <option>Design for Manufacturing</option><option>Anders / Algemeen</option>
         </select>
       </div>
-      <div class="form-group"><label>Projectbeschrijving *</label><textarea id="f-bericht" name="bericht" placeholder="Beschrijf uw project, materialen, aantallen en eventuele deadlines..." required></textarea></div>
-      <button type="button" class="btn-submit" id="form-btn" onclick="submitForm()">Verstuur Aanvraag &rarr;</button>
+      <div class="form-group"><label>${t('Projectbeschrijving *','Project description *')}</label><textarea id="f-bericht" name="bericht" placeholder="${t('${t('Beschrijf uw project, materialen, aantallen en eventuele deadlines...','Describe your project, materials, quantities and any deadlines...')}','Describe your project, materials, quantities and any deadlines...')}" required></textarea></div>
+      <button type="button" class="btn-submit" id="form-btn" onclick="submitForm()">${t('Verstuur Aanvraag','Send Request')} &rarr;</button>
     </form>
   </div>
   <div>
-    <h3 style="margin-bottom:1.5rem">Contactgegevens</h3>
-    <div class="info-item"><div class="info-icon">&#128205;</div><div class="info-text"><strong>Adres</strong><span>${e(i.adres1)}<br>${e(i.adres2)}</span></div></div>
-    <div class="info-item"><div class="info-icon">&#128222;</div><div class="info-text"><strong>Telefoon</strong><span><a href="tel:${i.telefoon.replace(/\\s/g,'')}" style="color:#4A5E72">${e(i.telefoon)}</a><br>Ma&ndash;Vr: 08:00&ndash;17:30</span></div></div>
-    <div class="info-item"><div class="info-icon">&#9993;&#65039;</div><div class="info-text"><strong>E-mail</strong><span><a href="mailto:${e(i.email)}" style="color:var(--orange)">${e(i.email)}</a></span></div></div>
-    <div class="info-item"><div class="info-icon">&#9201;&#65039;</div><div class="info-text"><strong>Reactietijd</strong><span>Offertes binnen 1 werkdag<br>SLS prototypes 24&ndash;48 uur</span></div></div>
+    <h3 style="margin-bottom:1.5rem">${t('Contactgegevens','Contact details')}</h3>
+    <div class="info-item"><div class="info-icon">&#128205;</div><div class="info-text"><strong>${t('Adres','Address')}</strong><span>${e(i.adres1)}<br>${e(i.adres2)}</span></div></div>
+    <div class="info-item"><div class="info-icon">&#128222;</div><div class="info-text"><strong>${t('Telefoon','Phone')}</strong><span><a href="tel:${i.telefoon.replace(/\\s/g,'')}" style="color:#4A5E72">${e(i.telefoon)}</a><br>${t('Ma\u2013Vr: 08:00\u201317:30','Mon\u2013Fri: 08:00\u201317:30')}</span></div></div>
+    <div class="info-item"><div class="info-icon">&#9993;&#65039;</div><div class="info-text"><strong>${t('E-mail','Email')}</strong><span><a href="mailto:${e(i.email)}" style="color:var(--orange)">${e(i.email)}</a></span></div></div>
+    <div class="info-item"><div class="info-icon">&#9201;&#65039;</div><div class="info-text"><strong>${t('Reactietijd','Response time')}</strong><span>${t('Offertes binnen 1 werkdag','Quotes within 1 business day')}<br>${t('SLS prototypes 24\u201348 uur','SLS prototypes 24\u201348 hours')}</span></div></div>
     <div class="social-links">
       <a href="${e(i.linkedin)}" target="_blank" rel="noopener" class="social-btn">in</a>
-     
     </div>
     <div class="map-block">
       <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=5.04%2C52.07%2C5.18%2C52.12&layer=mapnik&marker=52.0907%2C5.1214" title="Locatie PIU Utrecht" loading="lazy"></iframe>
@@ -595,6 +607,149 @@ async function submitForm(){
   }catch{showErr('\u26a0 Er is iets misgegaan. Bel ons op '+D.instellingen.telefoon)}
   btn.textContent='Verstuur Aanvraag \u2192';btn.disabled=false;
 }
+
+
+
+/* ── LANGUAGE SYSTEM ── */
+const EN = {"nav": {"home": "Home", "over": "About Us", "diensten": "Services", "portfolio": "Portfolio", "contact": "Contact", "cta": "Request Quote"}, "trust": [{"icon": "&#9889;", "text": "Delivery from 5 working days"}, {"icon": "&#128295;", "text": "In-house moulds &amp; tooling"}, {"icon": "&#128210;", "text": "Small series welcome"}, {"icon": "&#127981;", "text": "60+ years experience"}, {"icon": "&#127475;&#127473;", "text": "Made in Utrecht"}], "home_eyebrows": {"why": "Why choose PIU?", "why_h2": "Technical quality without compromise", "services": "What we do", "services_h2": "Our Core Activities", "services_btn": "View All Services", "testi": "What customers say", "testi_h2": "Trusted by Tech Companies", "about": "About us", "more_about": "More About Us", "cta_eyebrow": "Ready to get started?"}, "about_page": {"eyebrow": "About Plastic Industrie Utrecht BV", "story_eyebrow": "Our story", "mission_eyebrow": "Our Mission", "mission_h2": "Pushing technical boundaries,<br>one component at a time", "diff_eyebrow": "What sets us apart", "diff_h2": "Why PIU is the right choice", "diff_cta": "Start a Conversation"}, "services_page": {"eyebrow": "Services &amp; Solutions", "grid_eyebrow": "What we offer", "grid_h2": "Our Services", "steps_eyebrow": "How it works", "steps_h2": "From request to delivered product", "step1_h": "Request &amp; Drawing", "step1_p": "Upload your 3D file or drawing. We assess manufacturability directly.", "step2_h": "Quote &amp; DFM", "step2_p": "Within 1 business day a detailed quote including free DFM advice.", "step3_h": "Production &amp; Control", "step3_p": "Mould production followed by injection moulding with full QC inspection.", "step4_h": "Delivery", "step4_p": "Fast delivery complete with documents and quality certificates.", "faq_eyebrow": "Frequently Asked Questions", "faq_h2": "Questions? We have answers.", "cta_eyebrow": "Ready to get started?", "cta_h2": "Send your drawing, we handle the rest", "cta_p": "Free DFM analysis with every quote request. Response within 1 business day.", "cta_btn": "Request Quote"}, "portfolio_page": {"eyebrow": "Portfolio &amp; References", "h1_line1": "Technical Products", "h1_line2": "We Have Realised", "p": "A selection of projects for clients from various sectors.", "filter_all": "All", "empty": "No projects found."}, "contact_page": {"eyebrow": "Get In Touch", "form_h3": "Send us a message", "label_fname": "First name *", "label_lname": "Last name *", "label_email": "Email address *", "label_tel": "Phone number", "label_dienst": "Service of interest", "dienst_placeholder": "Select a service...", "dienst_opts": ["Injection Moulding", "Moulds &amp; Tooling", "SLS 3D Printing", "Assembly &amp; Finishing", "Design for Manufacturing", "Other / General"], "label_bericht": "Project description *", "bericht_placeholder": "Describe your project, materials, quantities and any deadlines...", "submit_btn": "Send Request", "info_h3": "Contact details", "info_address": "Address", "info_phone": "Phone", "info_email": "Email", "info_response": "Response time", "info_response_val": "Quotes within 1 business day<br>SLS prototypes 24–48 hours", "hours": "Mon–Fri 08:00–17:30"}, "footer": {"desc": "Specialist in injection moulding, moulds and SLS 3D printing for technical plastic components.", "nav_title": "Navigation", "services_title": "Services", "contact_title": "Contact", "services_list": ["Injection Moulding", "Moulds &amp; Tooling", "SLS 3D Printing", "Assembly", "Quality Control", "DFM Engineering"], "hours": "Mon–Fri 08:00–17:30", "privacy": "Privacy Policy", "av": "Terms &amp; Conditions"}};
+let currentLang = 'nl';
+
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('piu-lang', lang);
+
+  // Update lang buttons
+  document.getElementById('btn-nl').classList.toggle('active', lang === 'nl');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+  // Re-render all pages with new language
+  renderShell();
+  buildHome();
+  buildOver();
+  buildDiensten();
+  buildPortfolio();
+  buildContact();
+
+  // Update navigation labels
+  updateNavLabels();
+
+  // Update footer
+  const fdesc = document.getElementById('footer-desc-text');
+  if(fdesc) fdesc.textContent = lang==='en' ? 'Specialist in injection moulding, moulds and SLS 3D printing for technical plastic components.' : 'Specialist in spuitgieten, matrijzen en SLS 3D printen voor technische kunststof componenten.';
+  const fnavt = document.getElementById('footer-nav-title');
+  if(fnavt) fnavt.textContent = lang==='en' ? 'Navigation' : 'Navigatie';
+  const fsvct = document.getElementById('footer-svc-title');
+  if(fsvct) fsvct.textContent = lang==='en' ? 'Services' : 'Diensten';
+  const fcont = document.getElementById('footer-con-title');
+  if(fcont) fcont.textContent = lang==='en' ? 'Contact' : 'Contact';
+  const fhours = document.getElementById('footer-hours');
+  if(fhours) fhours.innerHTML = lang==='en' ? 'Mon&ndash;Fri 08:00&ndash;17:30' : 'Ma&ndash;Vr 08:00&ndash;17:30';
+  const footerBtn = document.getElementById('footer-cta-btn');
+  if(footerBtn) footerBtn.textContent = (lang==='en' ? 'Request Quote' : 'Offerte Aanvragen') + ' →';
+  const fprivacy = document.getElementById('footer-privacy-link');
+  if(fprivacy) fprivacy.textContent = lang==='en' ? 'Privacy Policy' : 'Privacybeleid';
+  const fav = document.getElementById('footer-av-link');
+  if(fav) fav.textContent = lang==='en' ? 'Terms & Conditions' : 'Algemene Voorwaarden';
+
+  // Stay on current page
+  const activePage = document.querySelector('.page.active');
+  if (activePage) activePage.classList.add('active');
+}
+
+function t(nlText, enText) {
+  return currentLang === 'en' ? enText : nlText;
+}
+
+function updateNavLabels() {
+  const nav = currentLang === 'en' ? EN.nav : null;
+  document.querySelectorAll('nav a[data-page], .mobile-menu a[data-page]').forEach(a => {
+    const page = a.dataset.page;
+    if (currentLang === 'en') {
+      const labels = {home:'Home',over:'About Us',diensten:'Services',portfolio:'Portfolio',contact:'Contact'};
+      a.textContent = labels[page] || a.textContent;
+    } else {
+      const labels = {home:'Home',over:'Over Ons',diensten:'Diensten',portfolio:'Portfolio',contact:'Contact'};
+      a.textContent = labels[page] || a.textContent;
+    }
+  });
+  const ctaBtn = document.getElementById('header-cta-btn');
+  if (ctaBtn) ctaBtn.textContent = currentLang === 'en' ? 'Request Quote' : 'Offerte Aanvragen';
+  const mobCta = document.getElementById('mob-cta-btn');
+  if (mobCta) mobCta.textContent = (currentLang === 'en' ? 'Request Quote' : 'Offerte Aanvragen') + ' →';
+}
+
+// Restore language preference
+(function() {
+  const saved = localStorage.getItem('piu-lang');
+  if (saved === 'en') {
+    currentLang = 'en';
+    document.getElementById('btn-nl').classList.remove('active');
+    document.getElementById('btn-en').classList.add('active');
+  }
+})();
+
+
+
+/* ── TWEETALIG SYSTEEM NL/EN ── */
+let currentLang = localStorage.getItem('piu-lang') || 'nl';
+
+function t(nl, en) {
+  return currentLang === 'en' ? en : nl;
+}
+
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('piu-lang', lang);
+
+  // Update lang buttons
+  document.getElementById('btn-nl').classList.toggle('active', lang === 'nl');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+  // Update nav labels
+  document.querySelectorAll('nav a[data-page], .mobile-menu a[data-page]').forEach(a => {
+    const page = a.dataset.page;
+    const nl = {home:'Home',over:'Over Ons',diensten:'Diensten',portfolio:'Portfolio',contact:'Contact'};
+    const en = {home:'Home',over:'About Us',diensten:'Services',portfolio:'Portfolio',contact:'Contact'};
+    a.textContent = lang === 'en' ? en[page] : nl[page];
+  });
+  const hcta = document.getElementById('header-cta-btn');
+  if(hcta) hcta.textContent = lang === 'en' ? 'Request Quote' : 'Offerte Aanvragen';
+  const mcta = document.getElementById('mob-cta-btn');
+  if(mcta) mcta.textContent = (lang === 'en' ? 'Request Quote' : 'Offerte Aanvragen') + ' →';
+
+  // Update footer
+  const fd = document.getElementById('footer-desc-text');
+  if(fd) fd.textContent = lang === 'en' ? 'Specialist in injection moulding, moulds and SLS 3D printing for technical plastic components.' : 'Specialist in spuitgieten, matrijzen en SLS 3D printen voor technische kunststof componenten.';
+  const fn = document.getElementById('footer-nav-title');
+  if(fn) fn.textContent = lang === 'en' ? 'Navigation' : 'Navigatie';
+  const fs = document.getElementById('footer-svc-title');
+  if(fs) fs.textContent = lang === 'en' ? 'Services' : 'Diensten';
+  const fh = document.getElementById('footer-hours');
+  if(fh) fh.innerHTML = lang === 'en' ? 'Mon&ndash;Fri 08:00&ndash;17:30' : 'Ma&ndash;Vr 08:00&ndash;17:30';
+  const fp = document.getElementById('footer-privacy-link');
+  if(fp) fp.textContent = lang === 'en' ? 'Privacy Policy' : 'Privacybeleid';
+  const fa = document.getElementById('footer-av-link');
+  if(fa) fa.textContent = lang === 'en' ? 'Terms & Conditions' : 'Algemene Voorwaarden';
+  const fb = document.getElementById('footer-cta-btn');
+  if(fb) fb.textContent = (lang === 'en' ? 'Request Quote' : 'Offerte Aanvragen') + ' →';
+
+  // Re-render all pages
+  renderShell();
+  buildHome();
+  buildOver();
+  buildDiensten();
+  buildPortfolio();
+  buildContact();
+
+  // Stay on current active page
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const activePage = lang === currentLang ? null : null; // handled by showPage below
+  showPage(window._currentPage || 'home');
+}
+
+// Track current page
+const _origShowPage = showPage;
+window._currentPage = 'home';
 
 
 // Load content from JSON files (written by CMS) then render
@@ -663,7 +818,14 @@ async function loadAndRender() {
   showPage('home');
 }
 
-loadAndRender();
+loadAndRender().then(() => {
+  // Restore language preference after render
+  if(currentLang === 'en') {
+    document.getElementById('btn-nl').classList.remove('active');
+    document.getElementById('btn-en').classList.add('active');
+    setLang('en');
+  }
+});
 
 
 /* ── Netlify Identity: handle invite & password-reset tokens ── */
