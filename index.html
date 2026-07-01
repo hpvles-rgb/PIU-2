@@ -352,62 +352,11 @@ function buildHome(){
 <section class="section benefits"><div class="container">
   <span class="eyebrow">Waarom kiezen voor PIU?</span>
   <h2>Technische kwaliteit zonder compromissen</h2>
-  <div class="benefits-grid">${h.voordelen.map(v=>`<div class="benefit-card"><div class="benefit-icon">${e(v.icoon)}</div><h3>${e(v.titel)}</h3><p>${e(v.tekst)}</p></div>`).join('')}</div>
-</div></section>
-<section class="section services-preview"><div class="container">
-  <span class="eyebrow">Wat wij doen</span><h2>Onze Kernactiviteiten</h2>
-  <div class="svc-grid">${d.diensten.slice(0,3).map(s=>`<div class="svc-card" onclick="showPage('diensten')"><div class="svc-card-img"><img src="${e(s.afbeelding)}" alt="${e(s.titel)}" loading="lazy"></div><div class="svc-card-body"><div class="tag">${e(s.tag)}</div><h3>${e(s.titel)}</h3><p>${e(s.beschrijving)}</p></div></div>`).join('')}</div>
-  <div style="text-align:center;margin-top:2.5rem"><button class="btn btn-outline-dark" onclick="showPage('diensten')">Alle Diensten Bekijken &rarr;</button></div>
-</div></section>
-<section class="section testimonials"><div class="container">
-  <span class="eyebrow" style="color:var(--orange)">Wat klanten zeggen</span>
-  <h2 style="color:#fff;margin-bottom:0">Vertrouwd door Techbedrijven</h2>
-  <div class="testi-grid">${h.testimonials.map(t=>`<div class="testi-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>&ldquo;${e(t.quote)}&rdquo;</blockquote><div class="testi-author"><div class="avatar">${e(t.initialen)}</div><div class="author-info"><strong>${e(t.naam)}</strong><span>${e(t.functie)}</span></div></div></div>`).join('')}</div>
-</div></section>
-<section class="section about-preview"><div class="container"><div class="about-inner">
-  <div class="about-img"><img src="/over-ons.png" alt="Productiehal PIU" loading="lazy"></div>
-  <div>
-    <span class="eyebrow">Over ons</span>
-    <h2>${e(h.over.titel)}</h2>
-    <div class="slash-divider"></div>
-    <p>${e(h.over.tekst)}</p>
-    <div class="stats-grid">${h.stats.map(s=>`<div class="stat-box"><strong>${e(s.cijfer)}</strong><span>${e(s.label)}</span></div>`).join('')}</div>
-    <button class="btn btn-primary" onclick="showPage('over')">Meer Over Ons &rarr;</button>
-  </div>
-</div></div></section>
-<section class="cta-strip"><div class="container">
-  <span class="eyebrow" style="color:rgba(255,255,255,.65)">Klaar om te starten?</span>
-  <h2>${e(cta.titel)}</h2><p>${e(cta.tekst)}</p>
-  <button class="btn btn-white" onclick="showPage('contact')">${e(cta.knop)} &rarr;</button>
-</div></section>`;
-}
-
-function buildOver(){
-  const o=D.over;
-  $('page-over').innerHTML=`
-<section class="page-hero"><div class="container">
-  <span class="eyebrow">Over Plastic Industrie Utrecht BV</span>
-  <h1>${e(o.hero_titel)}</h1><p>${e(o.hero_tekst)}</p>
-</div></section>
-<section class="section" style="background:var(--white)"><div class="container"><div class="story-inner">
-  <div class="story-img"><img src="/over-ons.png" alt="Maakindustrie Utrecht" loading="lazy"></div>
-  <div>
-    <span class="eyebrow">Ons verhaal</span>
-    <h2>${e(o.verhaal_titel)}</h2>
-    <div class="slash-divider"></div>
-    <p>${e(o.verhaal_tekst)}</p>
-    <div class="timeline">${o.tijdlijn.map(t=>`<div class="tl-item"><div class="tl-dot"></div><div><h4>${e(t.titel)}</h4><p>${e(t.tekst)}</p></div></div>`).join('')}</div>
-  </div>
-</div></div></section>
-<section class="mission-block"><div class="container"><div class="mission-inner">
-  <span class="eyebrow">Onze Missie</span>
-  <h2>Technische grenzen verleggen,<br>één onderdeel tegelijk</h2>
-  <blockquote class="mission-quote">&ldquo;${e(o.missie_quote)}&rdquo;</blockquote>
-</div></div></section>
-<section class="section" style="background:var(--white)"><div class="container">
-  <span class="eyebrow">Wat ons onderscheidt</span>
-  <h2 style="margin-bottom:2.5rem">Waarom PIU de juiste keuze is</h2>
-  <div class="diff-grid">${o.punten.map(p=>`<div class="diff-card"><h4>${e(p.titel)}</h4><p>${e(p.tekst)}</p></div>`).join('')}</div>
+  <div class="benefits-grid">${h.voordelen.map((v,i)=>{
+  const svgEl=document.getElementById('piu-icon-'+(i%3+1));
+  const iconHtml=svgEl?svgEl.innerHTML:'';
+  return `<div class="benefit-card"><div class="piu-3d-icon">${iconHtml}</div><h3>${e(v.titel)}</h3><p>${e(v.tekst)}</p></div>`;
+}).join('')}</div>
   <div style="text-align:center"><button class="btn btn-primary" onclick="showPage('contact')">Start een Gesprek &rarr;</button></div>
 </div></section>`;
 }
