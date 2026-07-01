@@ -246,11 +246,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,92,26,.15);padding:4
   <div class="page" id="page-diensten"></div>
   <div class="page" id="page-portfolio"></div>
   <div class="page" id="page-contact"></div>
-<div style="display:none">
-  <div id="piu-icon-1"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 20 L32 12 L56 20 L56 44 L32 52 L8 44 Z" fill="#0A2463" stroke="#1a3a7a" stroke-width="0.5"/><path d="M8 20 L32 12 L56 20 L32 28 Z" fill="#0D3580" stroke="#1a4090" stroke-width="0.5"/><path d="M8 20 L8 44 L32 52 L32 28 Z" fill="#061840" stroke="#0d2a6a" stroke-width="0.5"/><path d="M56 20 L56 44 L32 52 L32 28 Z" fill="#0A2463" stroke="#1a3a7a" stroke-width="0.5"/><path d="M32 12 L32 28 L8 20" stroke="#E8A020" stroke-width="1.5" stroke-linecap="round"/><path d="M32 28 L56 20" stroke="#E8A020" stroke-width="1" stroke-linecap="round" opacity="0.6"/><path d="M32 28 L32 52" stroke="#E8A020" stroke-width="1" stroke-linecap="round" opacity="0.4"/><path d="M20 24 L32 20 L44 24" stroke="#E8A020" stroke-width="0.8" opacity="0.5" stroke-linecap="round"/></svg></div>
-  <div id="piu-icon-2"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 16 L32 8 L52 16 L52 36 L32 44 L12 36 Z" fill="#0D3580"/><path d="M12 16 L32 8 L52 16 L32 24 Z" fill="#1a4090"/><path d="M12 16 L12 36 L32 44 L32 24 Z" fill="#061840"/><path d="M52 16 L52 36 L32 44 L32 24 Z" fill="#0A2463"/><path d="M22 20 L32 16 L42 20 L42 30 L32 34 L22 30 Z" fill="#061840" opacity="0.8"/><path d="M22 20 L32 16 L42 20 L32 24 Z" fill="#0d2a6a" opacity="0.6"/><circle cx="24" cy="38" r="2" fill="#E8A020"/><circle cx="32" cy="41" r="2" fill="#E8A020"/><circle cx="40" cy="38" r="2" fill="#E8A020"/><path d="M32 8 L32 24" stroke="#E8A020" stroke-width="1.5" stroke-linecap="round"/><path d="M22 20 L32 24 L42 20" stroke="#E8A020" stroke-width="1" opacity="0.7" stroke-linecap="round"/></svg></div>
-  <div id="piu-icon-3"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 22 L32 14 L54 22 L54 42 L32 50 L10 42 Z" fill="#0A2463"/><path d="M10 22 L32 14 L54 22 L32 30 Z" fill="#0D3580"/><path d="M10 22 L10 42 L32 50 L32 30 Z" fill="#061840"/><path d="M54 22 L54 42 L32 50 L32 30 Z" fill="#08204f"/><rect x="20" y="24" width="4" height="8" rx="1" fill="#E8A020" opacity="0.9"/><rect x="28" y="24" width="4" height="8" rx="1" fill="#E8A020" opacity="0.7"/><rect x="36" y="24" width="4" height="8" rx="1" fill="#E8A020" opacity="0.9"/><path d="M10 30 L32 38 L54 30" stroke="#E8A020" stroke-width="0.8" opacity="0.4" stroke-linecap="round"/><path d="M32 14 L32 30" stroke="#E8A020" stroke-width="1.5" stroke-linecap="round"/><path d="M10 22 L32 30 L54 22" stroke="#E8A020" stroke-width="1" opacity="0.6" stroke-linecap="round"/></svg></div>
-</div></main>
+</main>
 
 <footer>
   <div class="container">
@@ -356,11 +352,62 @@ function buildHome(){
 <section class="section benefits"><div class="container">
   <span class="eyebrow">Waarom kiezen voor PIU?</span>
   <h2>Technische kwaliteit zonder compromissen</h2>
-  <div class="benefits-grid">${h.voordelen.map((v,i)=>{
-  const svgEl=document.getElementById('piu-icon-'+(i%3+1));
-  const iconHtml=svgEl?svgEl.innerHTML:'';
-  return `<div class="benefit-card"><div class="piu-3d-icon">${iconHtml}</div><h3>${e(v.titel)}</h3><p>${e(v.tekst)}</p></div>`;
-}).join('')}</div>
+  <div class="benefits-grid">${h.voordelen.map(v=>`<div class="benefit-card"><div class="benefit-icon">${e(v.icoon)}</div><h3>${e(v.titel)}</h3><p>${e(v.tekst)}</p></div>`).join('')}</div>
+</div></section>
+<section class="section services-preview"><div class="container">
+  <span class="eyebrow">Wat wij doen</span><h2>Onze Kernactiviteiten</h2>
+  <div class="svc-grid">${d.diensten.slice(0,3).map(s=>`<div class="svc-card" onclick="showPage('diensten')"><div class="svc-card-img"><img src="${e(s.afbeelding)}" alt="${e(s.titel)}" loading="lazy"></div><div class="svc-card-body"><div class="tag">${e(s.tag)}</div><h3>${e(s.titel)}</h3><p>${e(s.beschrijving)}</p></div></div>`).join('')}</div>
+  <div style="text-align:center;margin-top:2.5rem"><button class="btn btn-outline-dark" onclick="showPage('diensten')">Alle Diensten Bekijken &rarr;</button></div>
+</div></section>
+<section class="section testimonials"><div class="container">
+  <span class="eyebrow" style="color:var(--orange)">Wat klanten zeggen</span>
+  <h2 style="color:#fff;margin-bottom:0">Vertrouwd door Techbedrijven</h2>
+  <div class="testi-grid">${h.testimonials.map(t=>`<div class="testi-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>&ldquo;${e(t.quote)}&rdquo;</blockquote><div class="testi-author"><div class="avatar">${e(t.initialen)}</div><div class="author-info"><strong>${e(t.naam)}</strong><span>${e(t.functie)}</span></div></div></div>`).join('')}</div>
+</div></section>
+<section class="section about-preview"><div class="container"><div class="about-inner">
+  <div class="about-img"><img src="/over-ons.png" alt="Productiehal PIU" loading="lazy"></div>
+  <div>
+    <span class="eyebrow">Over ons</span>
+    <h2>${e(h.over.titel)}</h2>
+    <div class="slash-divider"></div>
+    <p>${e(h.over.tekst)}</p>
+    <div class="stats-grid">${h.stats.map(s=>`<div class="stat-box"><strong>${e(s.cijfer)}</strong><span>${e(s.label)}</span></div>`).join('')}</div>
+    <button class="btn btn-primary" onclick="showPage('over')">Meer Over Ons &rarr;</button>
+  </div>
+</div></div></section>
+<section class="cta-strip"><div class="container">
+  <span class="eyebrow" style="color:rgba(255,255,255,.65)">Klaar om te starten?</span>
+  <h2>${e(cta.titel)}</h2><p>${e(cta.tekst)}</p>
+  <button class="btn btn-white" onclick="showPage('contact')">${e(cta.knop)} &rarr;</button>
+</div></section>`;
+}
+
+function buildOver(){
+  const o=D.over;
+  $('page-over').innerHTML=`
+<section class="page-hero"><div class="container">
+  <span class="eyebrow">Over Plastic Industrie Utrecht BV</span>
+  <h1>${e(o.hero_titel)}</h1><p>${e(o.hero_tekst)}</p>
+</div></section>
+<section class="section" style="background:var(--white)"><div class="container"><div class="story-inner">
+  <div class="story-img"><img src="/over-ons.png" alt="Maakindustrie Utrecht" loading="lazy"></div>
+  <div>
+    <span class="eyebrow">Ons verhaal</span>
+    <h2>${e(o.verhaal_titel)}</h2>
+    <div class="slash-divider"></div>
+    <p>${e(o.verhaal_tekst)}</p>
+    <div class="timeline">${o.tijdlijn.map(t=>`<div class="tl-item"><div class="tl-dot"></div><div><h4>${e(t.titel)}</h4><p>${e(t.tekst)}</p></div></div>`).join('')}</div>
+  </div>
+</div></div></section>
+<section class="mission-block"><div class="container"><div class="mission-inner">
+  <span class="eyebrow">Onze Missie</span>
+  <h2>Technische grenzen verleggen,<br>één onderdeel tegelijk</h2>
+  <blockquote class="mission-quote">&ldquo;${e(o.missie_quote)}&rdquo;</blockquote>
+</div></div></section>
+<section class="section" style="background:var(--white)"><div class="container">
+  <span class="eyebrow">Wat ons onderscheidt</span>
+  <h2 style="margin-bottom:2.5rem">Waarom PIU de juiste keuze is</h2>
+  <div class="diff-grid">${o.punten.map(p=>`<div class="diff-card"><h4>${e(p.titel)}</h4><p>${e(p.tekst)}</p></div>`).join('')}</div>
   <div style="text-align:center"><button class="btn btn-primary" onclick="showPage('contact')">Start een Gesprek &rarr;</button></div>
 </div></section>`;
 }
