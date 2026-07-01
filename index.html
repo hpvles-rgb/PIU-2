@@ -531,7 +531,7 @@ function buildPortfolio(){
 
 function renderPortCards(f){
   const ps=D.portfolio,vs=f==='all'?ps:ps.filter(p=>p.categorie===f);
-  $('port-grid').innerHTML=vs.map(p=>`<div class="port-card"><div class="port-img"><img src="${e(p.afbeelding)}" alt="${e(p.title)}" loading="lazy"></div><div class="port-body"><div class="tag">${e(p.categorie)}</div><h4>${e(p.title)}</h4><p>${e(p.beschrijving)}</p></div></div>`).join('')||'<p style="padding:3rem 0;color:#8A9BB0;">${t('Geen projecten gevonden.','No projects found.')}</p>';
+  $('port-grid').innerHTML=vs.map(p=>`<div class="port-card"><div class="port-img"><img src="${e(p.afbeelding)}" alt="${e(p.title)}" loading="lazy"></div><div class="port-body"><div class="tag">${e(p.categorie)}</div><h4>${e(p.title)}</h4><p>${e(p.beschrijving)}</p></div></div>`).join('')||`<p style="padding:3rem 0;color:#8A9BB0;">${t('Geen projecten gevonden.','No projects found.')}</p>`;
 }
 function filterPort(b,c){document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderPortCards(c)}
 
