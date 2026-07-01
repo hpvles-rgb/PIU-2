@@ -1,1 +1,104 @@
-diensten-en.json
+{
+  "hero_titel": "From Design to End Product",
+  "hero_tekst": "A comprehensive range from injection moulding and mould making to SLS 3D printing and assembly — all under one roof in Utrecht.",
+  "diensten": [
+    {
+      "tag": "Core Process",
+      "titel": "Injection Moulding",
+      "afbeelding": "https://images.unsplash.com/photo-1563770660941-20978e870e26?w=600&q=80",
+      "beschrijving": "Precision injection moulding of technical plastic components in virtually all thermoplastic materials.",
+      "bullets": [
+        "Small and medium series",
+        "Tolerances ±0.05mm",
+        "Multi-component moulding",
+        "Material advice included"
+      ]
+    },
+    {
+      "tag": "Tooling",
+      "titel": "Moulds & Tooling",
+      "afbeelding": "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=600&q=80",
+      "beschrijving": "Fully in-house mould design and production. From single cavity to multi-cavity tooling with complex geometries.",
+      "bullets": [
+        "2D/3D CAD design",
+        "Steel and aluminium tooling",
+        "Fast modifications",
+        "Long service life guaranteed"
+      ]
+    },
+    {
+      "tag": "Rapid Prototyping",
+      "titel": "SLS 3D Printing",
+      "afbeelding": "https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=600&q=80",
+      "beschrijving": "Selective Laser Sintering for functional prototypes and small series in PA12, glass-filled and flame-retardant nylon.",
+      "bullets": [
+        "Delivery 24-48 hours",
+        "No tooling required",
+        "Functionally testable",
+        "Direct from CAD file"
+      ]
+    },
+    {
+      "tag": "Post-processing",
+      "titel": "Assembly & Finishing",
+      "afbeelding": "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=600&q=80",
+      "beschrijving": "Complete assembly of plastic sub-assemblies including insert placement, welding and surface treatment.",
+      "bullets": [
+        "Ultrasonic welding & bonding",
+        "Insert placement & overmoulding",
+        "Screen printing & laser engraving",
+        "Kitting solutions"
+      ]
+    },
+    {
+      "tag": "Quality",
+      "titel": "Quality Control",
+      "afbeelding": "https://images.unsplash.com/photo-1581092160607-ee67df8b1b23?w=600&q=80",
+      "beschrijving": "Structured quality assurance at every production stage with full traceability and inspection documentation.",
+      "bullets": [
+        "CMM measurement & first article",
+        "Material certificates",
+        "PPAP & FMEA on request",
+        "Customer-specific QC plans"
+      ]
+    },
+    {
+      "tag": "Engineering",
+      "titel": "Design for Manufacturing",
+      "afbeelding": "https://images.unsplash.com/photo-1581091215367-9b6c00b3035a?w=600&q=80",
+      "beschrijving": "We assess your design for manufacturability and proactively optimise for cost, quality and lead time.",
+      "bullets": [
+        "Free DFM analysis with every quote",
+        "Material advice & simulation",
+        "Drawing revision on request",
+        "Reverse engineering possible"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "vraag": "What is the minimum order quantity?",
+      "antwoord": "There is no hard minimum — we deliver from 1 piece. Small series are our speciality."
+    },
+    {
+      "vraag": "How long does a new mould take?",
+      "antwoord": "A standard single cavity mould is delivered by our team in 4-6 weeks. Expedited options available."
+    },
+    {
+      "vraag": "Which materials can you process?",
+      "antwoord": "We process PA, PP, PE, ABS, POM, PC, PETG, PPS and more. Material advice is always free."
+    },
+    {
+      "vraag": "Can you also assemble?",
+      "antwoord": "Yes. We offer full post-processing and assembly including ultrasonic welding, insert placement, screen printing and kitting."
+    },
+    {
+      "vraag": "What does an SLS prototype cost?",
+      "antwoord": "SLS prototypes start from €45 per part, depending on volume and material. Delivery 24-48 hours after confirmation."
+    },
+    {
+      "vraag": "Do you deliver internationally?",
+      "antwoord": "Yes, we deliver throughout Europe: Benelux, Germany, Belgium, UK and more."
+    }
+  ]
+}
