@@ -1,1 +1,43 @@
-over-en.json
+{
+  "hero_titel": "Craftsmanship. Precision. Partnership.",
+  "hero_tekst": "We are not an anonymous production supplier — we are a technical partner who thinks along, grows with you and always seeks the best solution for your specific challenge.",
+  "verhaal_titel": "From Garage Company to Industrial Partner",
+  "verhaal_tekst": "Plastic Industrie Utrecht BV was founded out of a passion for precision and the belief that smaller companies deserve the same quality as large corporations.",
+  "tijdlijn": [
+    {
+      "titel": "Founded in Utrecht",
+      "tekst": "Started with two injection moulding machines and a focus on small, precise series for the mechanical engineering industry."
+    },
+    {
+      "titel": "Expansion of mould shop",
+      "tekst": "In-house tooling department established — shorter lead times and better quality control of tools."
+    },
+    {
+      "titel": "Introduction of SLS 3D printing",
+      "tekst": "Investment in SLS technology accelerates the prototyping phase for clients and significantly reduces time-to-market."
+    },
+    {
+      "titel": "Today — 500+ clients in the Benelux",
+      "tekst": "From medical devices to automotive — we deliver technical plastic solutions for every sector."
+    }
+  ],
+  "missie_quote": "We believe that the quality of a plastic component should never depend on the order quantity. Whether you order 10 or 10,000 pieces — our standard is always the same: perfect.",
+  "punten": [
+    {
+      "titel": "🔧 In-house Mould Shop",
+      "tekst": "No external tooling company — we design and produce our own moulds. Faster adjustments and lower costs."
+    },
+    {
+      "titel": "📦 Small Series Specialist",
+      "tekst": "Minimum 1 piece possible. We specialise in small and medium series where others say no."
+    },
+    {
+      "titel": "⚡ Fast Lead Times",
+      "tekst": "From quote to first production part in record time. Streamlined processes eliminate unnecessary waiting time."
+    },
+    {
+      "titel": "🤝 Technical Expertise",
+      "tekst": "Our engineering team proactively analyses your design for improvements in manufacturability and cost savings."
+    }
+  ]
+}
