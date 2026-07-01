@@ -170,3 +170,121 @@ collections:
           - { label: "Hero koptitel", name: "hero_titel", widget: "string" }
           - { label: "Hero ondertekst", name: "hero_tekst", widget: "text" }
           - { label: "Formspree formulier ID", name: "formspree_id", widget: "string", hint: "Maak gratis account op formspree.io → New Form → kopieer het ID (bijv. xrgvpkqb)" }
+# ── HOME PAGINA (ENGLISH) ──────────────────────────
+  - name: "home-en"
+    label: "🏠 Home page (English)"
+    files:
+      - name: "home-en"
+        label: "Home page content (EN)"
+        file: "content/home-en.json"
+        fields:
+          - label: "Hero section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Badge text", name: "badge", widget: "string" }
+              - { label: "Main title (H1)", name: "titel", widget: "string" }
+              - { label: "Subtitle", name: "subtitel", widget: "text" }
+              - { label: "Button 1 text", name: "knop1_tekst", widget: "string" }
+              - { label: "Button 2 text", name: "knop2_tekst", widget: "string" }
+          - label: "3 Benefit cards"
+            name: "voordelen"
+            widget: "list"
+            fields:
+              - { label: "Icon (emoji)", name: "icoon", widget: "string" }
+              - { label: "Title", name: "titel", widget: "string" }
+              - { label: "Text", name: "tekst", widget: "text" }
+          - label: "About preview"
+            name: "over"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "titel", widget: "string" }
+              - { label: "Text", name: "tekst", widget: "text" }
+          - label: "4 Statistics"
+            name: "stats"
+            widget: "list"
+            fields:
+              - { label: "Number", name: "cijfer", widget: "string" }
+              - { label: "Label", name: "label", widget: "string" }
+          - label: "3 Testimonials"
+            name: "testimonials"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "naam", widget: "string" }
+              - { label: "Role + company", name: "functie", widget: "string" }
+              - { label: "Quote", name: "quote", widget: "text" }
+              - { label: "Initials", name: "initialen", widget: "string" }
+          - label: "CTA banner"
+            name: "cta"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "titel", widget: "string" }
+              - { label: "Subtitle", name: "tekst", widget: "string" }
+              - { label: "Button text", name: "knop", widget: "string" }
+
+  # ── ABOUT PAGE (ENGLISH) ─────────────────────────────
+  - name: "over-en"
+    label: "👥 About page (English)"
+    files:
+      - name: "over-en"
+        label: "About page content (EN)"
+        file: "content/over-en.json"
+        fields:
+          - { label: "Hero title", name: "hero_titel", widget: "string" }
+          - { label: "Hero text", name: "hero_tekst", widget: "text" }
+          - { label: "Story title", name: "verhaal_titel", widget: "string" }
+          - { label: "Story text", name: "verhaal_tekst", widget: "text" }
+          - label: "Timeline"
+            name: "tijdlijn"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "titel", widget: "string" }
+              - { label: "Text", name: "tekst", widget: "text" }
+          - { label: "Mission quote", name: "missie_quote", widget: "text" }
+          - label: "4 Distinguishing points"
+            name: "punten"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "titel", widget: "string" }
+              - { label: "Text", name: "tekst", widget: "text" }
+
+  # ── SERVICES PAGE (ENGLISH) ──────────────────────────
+  - name: "diensten-en"
+    label: "🔧 Services page (English)"
+    files:
+      - name: "diensten-en"
+        label: "Services page content (EN)"
+        file: "content/diensten-en.json"
+        fields:
+          - { label: "Hero title", name: "hero_titel", widget: "string" }
+          - { label: "Hero text", name: "hero_tekst", widget: "text" }
+          - label: "Services (6 cards)"
+            name: "diensten"
+            widget: "list"
+            fields:
+              - { label: "Tag/label", name: "tag", widget: "string" }
+              - { label: "Service name", name: "titel", widget: "string" }
+              - { label: "Image URL", name: "afbeelding", widget: "string" }
+              - { label: "Description", name: "beschrijving", widget: "text" }
+              - label: "Bullet points"
+                name: "bullets"
+                widget: "list"
+                field: { label: "Point", name: "punt", widget: "string" }
+          - label: "FAQ"
+            name: "faq"
+            widget: "list"
+            fields:
+              - { label: "Question", name: "vraag", widget: "string" }
+              - { label: "Answer", name: "antwoord", widget: "text" }
+
+  # ── CONTACT PAGE (ENGLISH) ───────────────────────────
+  - name: "contact-en"
+    label: "📬 Contact page (English)"
+    files:
+      - name: "contact-en"
+        label: "Contact page content (EN)"
+        file: "content/contact-en.json"
+        fields:
+          - { label: "Hero title", name: "hero_titel", widget: "string" }
+          - { label: "Hero text", name: "hero_tekst", widget: "text" }
+          - { label: "Formspree ID", name: "formspree_id", widget: "string" }
