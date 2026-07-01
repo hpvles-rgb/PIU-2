@@ -1,1 +1,73 @@
-home-en.json
+{
+  "hero": {
+    "badge": "ISO-certified · Utrecht, Netherlands",
+    "titel": "Precision Injection Moulding for Technical Plastic Components",
+    "subtitel": "From small prototype to series production — we deliver technical plastic components that fit, work and last. Fast delivery, competitive pricing.",
+    "knop1_tekst": "Request Quote",
+    "knop2_tekst": "Our Services"
+  },
+  "voordelen": [
+    {
+      "icoon": "⚙️",
+      "titel": "Small Series, High Precision",
+      "tekst": "Minimum order quantity of 1 piece. Ideal for R&D, replacement parts and niche products with high dimensional tolerances."
+    },
+    {
+      "icoon": "🚀",
+      "titel": "Fast Delivery",
+      "tekst": "Thanks to our in-house mould shop and flexible production capacity, we guarantee shorter lead times than the market standard."
+    },
+    {
+      "icoon": "🔩",
+      "titel": "Engineering Support",
+      "tekst": "Our technical team advises on material selection, mould design and assembly — from drawing to final product in one hand."
+    }
+  ],
+  "over": {
+    "titel": "Utrecht Craftsmanship, European Quality Standard",
+    "tekst": "Plastic Industrie Utrecht BV has been operating for over 25 years and has grown into a trusted partner for technical companies throughout the Benelux and beyond."
+  },
+  "stats": [
+    {
+      "cijfer": "60+",
+      "label": "Years experience"
+    },
+    {
+      "cijfer": "50+",
+      "label": "Satisfied clients"
+    },
+    {
+      "cijfer": "48h",
+      "label": "Prototype delivery"
+    },
+    {
+      "cijfer": "100%",
+      "label": "NL Production"
+    }
+  ],
+  "testimonials": [
+    {
+      "naam": "Marc van der Berg",
+      "functie": "Procurement Director, TechFlow Systems",
+      "quote": "PIU consistently delivers high quality with lead times that surpass every other supplier. Our go-to for complex plastic components.",
+      "initialen": "MV"
+    },
+    {
+      "naam": "Sandra Evers",
+      "functie": "R&D Manager, MedDevice NL",
+      "quote": "The combination of SLS printing and injection moulding under one roof saves us months in the development cycle. Exceptional technical expertise.",
+      "initialen": "SE"
+    },
+    {
+      "naam": "Joost Kramer",
+      "functie": "Operations Lead, Deltatech BV",
+      "quote": "Small series, fast delivery, fair pricing. PIU is the partner we had been looking for. No surprises, always on time.",
+      "initialen": "JK"
+    }
+  ],
+  "cta": {
+    "titel": "Request a free quote today",
+    "tekst": "Upload your drawing or describe your project. We respond within one business day.",
+    "knop": "Request Quote"
+  }
+}
