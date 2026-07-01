@@ -561,13 +561,13 @@ function buildContact(){
       <div class="form-group">
         <label>${t('Dienst van interesse','Service of interest')}</label>
         <select name="dienst" style="background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A9BB0' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E&quot;);background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem">
-          <option value="">${t('${t('Selecteer een dienst...','Select a service...')}','Select a service...')}</option>
+          <option value="">${t('Selecteer een dienst...','Select a service...')}</option>
           <option>Spuitgieten</option><option>Matrijzen &amp; Tooling</option>
           <option>SLS 3D Printen</option><option>Assemblage &amp; Afwerking</option>
           <option>Design for Manufacturing</option><option>Anders / Algemeen</option>
         </select>
       </div>
-      <div class="form-group"><label>${t('Projectbeschrijving *','Project description *')}</label><textarea id="f-bericht" name="bericht" placeholder="${t('${t('Beschrijf uw project, materialen, aantallen en eventuele deadlines...','Describe your project, materials, quantities and any deadlines...')}','Describe your project, materials, quantities and any deadlines...')}" required></textarea></div>
+      <div class="form-group"><label>${t('Projectbeschrijving *','Project description *')}</label><textarea id="f-bericht" name="bericht" placeholder="${t('Beschrijf uw project, materialen, aantallen en eventuele deadlines...','Describe your project, materials, quantities and any deadlines...')}" required></textarea></div>
       <button type="button" class="btn-submit" id="form-btn" onclick="submitForm()">${t('Verstuur Aanvraag','Send Request')} &rarr;</button>
     </form>
   </div>
