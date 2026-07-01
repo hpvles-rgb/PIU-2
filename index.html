@@ -610,85 +610,6 @@ async function submitForm(){
 
 
 
-/* ── LANGUAGE SYSTEM ── */
-const EN = {"nav": {"home": "Home", "over": "About Us", "diensten": "Services", "portfolio": "Portfolio", "contact": "Contact", "cta": "Request Quote"}, "trust": [{"icon": "&#9889;", "text": "Delivery from 5 working days"}, {"icon": "&#128295;", "text": "In-house moulds &amp; tooling"}, {"icon": "&#128210;", "text": "Small series welcome"}, {"icon": "&#127981;", "text": "60+ years experience"}, {"icon": "&#127475;&#127473;", "text": "Made in Utrecht"}], "home_eyebrows": {"why": "Why choose PIU?", "why_h2": "Technical quality without compromise", "services": "What we do", "services_h2": "Our Core Activities", "services_btn": "View All Services", "testi": "What customers say", "testi_h2": "Trusted by Tech Companies", "about": "About us", "more_about": "More About Us", "cta_eyebrow": "Ready to get started?"}, "about_page": {"eyebrow": "About Plastic Industrie Utrecht BV", "story_eyebrow": "Our story", "mission_eyebrow": "Our Mission", "mission_h2": "Pushing technical boundaries,<br>one component at a time", "diff_eyebrow": "What sets us apart", "diff_h2": "Why PIU is the right choice", "diff_cta": "Start a Conversation"}, "services_page": {"eyebrow": "Services &amp; Solutions", "grid_eyebrow": "What we offer", "grid_h2": "Our Services", "steps_eyebrow": "How it works", "steps_h2": "From request to delivered product", "step1_h": "Request &amp; Drawing", "step1_p": "Upload your 3D file or drawing. We assess manufacturability directly.", "step2_h": "Quote &amp; DFM", "step2_p": "Within 1 business day a detailed quote including free DFM advice.", "step3_h": "Production &amp; Control", "step3_p": "Mould production followed by injection moulding with full QC inspection.", "step4_h": "Delivery", "step4_p": "Fast delivery complete with documents and quality certificates.", "faq_eyebrow": "Frequently Asked Questions", "faq_h2": "Questions? We have answers.", "cta_eyebrow": "Ready to get started?", "cta_h2": "Send your drawing, we handle the rest", "cta_p": "Free DFM analysis with every quote request. Response within 1 business day.", "cta_btn": "Request Quote"}, "portfolio_page": {"eyebrow": "Portfolio &amp; References", "h1_line1": "Technical Products", "h1_line2": "We Have Realised", "p": "A selection of projects for clients from various sectors.", "filter_all": "All", "empty": "No projects found."}, "contact_page": {"eyebrow": "Get In Touch", "form_h3": "Send us a message", "label_fname": "First name *", "label_lname": "Last name *", "label_email": "Email address *", "label_tel": "Phone number", "label_dienst": "Service of interest", "dienst_placeholder": "Select a service...", "dienst_opts": ["Injection Moulding", "Moulds &amp; Tooling", "SLS 3D Printing", "Assembly &amp; Finishing", "Design for Manufacturing", "Other / General"], "label_bericht": "Project description *", "bericht_placeholder": "Describe your project, materials, quantities and any deadlines...", "submit_btn": "Send Request", "info_h3": "Contact details", "info_address": "Address", "info_phone": "Phone", "info_email": "Email", "info_response": "Response time", "info_response_val": "Quotes within 1 business day<br>SLS prototypes 24–48 hours", "hours": "Mon–Fri 08:00–17:30"}, "footer": {"desc": "Specialist in injection moulding, moulds and SLS 3D printing for technical plastic components.", "nav_title": "Navigation", "services_title": "Services", "contact_title": "Contact", "services_list": ["Injection Moulding", "Moulds &amp; Tooling", "SLS 3D Printing", "Assembly", "Quality Control", "DFM Engineering"], "hours": "Mon–Fri 08:00–17:30", "privacy": "Privacy Policy", "av": "Terms &amp; Conditions"}};
-let currentLang = 'nl';
-
-function setLang(lang) {
-  currentLang = lang;
-  localStorage.setItem('piu-lang', lang);
-
-  // Update lang buttons
-  document.getElementById('btn-nl').classList.toggle('active', lang === 'nl');
-  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-
-  // Re-render all pages with new language
-  renderShell();
-  buildHome();
-  buildOver();
-  buildDiensten();
-  buildPortfolio();
-  buildContact();
-
-  // Update navigation labels
-  updateNavLabels();
-
-  // Update footer
-  const fdesc = document.getElementById('footer-desc-text');
-  if(fdesc) fdesc.textContent = lang==='en' ? 'Specialist in injection moulding, moulds and SLS 3D printing for technical plastic components.' : 'Specialist in spuitgieten, matrijzen en SLS 3D printen voor technische kunststof componenten.';
-  const fnavt = document.getElementById('footer-nav-title');
-  if(fnavt) fnavt.textContent = lang==='en' ? 'Navigation' : 'Navigatie';
-  const fsvct = document.getElementById('footer-svc-title');
-  if(fsvct) fsvct.textContent = lang==='en' ? 'Services' : 'Diensten';
-  const fcont = document.getElementById('footer-con-title');
-  if(fcont) fcont.textContent = lang==='en' ? 'Contact' : 'Contact';
-  const fhours = document.getElementById('footer-hours');
-  if(fhours) fhours.innerHTML = lang==='en' ? 'Mon&ndash;Fri 08:00&ndash;17:30' : 'Ma&ndash;Vr 08:00&ndash;17:30';
-  const footerBtn = document.getElementById('footer-cta-btn');
-  if(footerBtn) footerBtn.textContent = (lang==='en' ? 'Request Quote' : 'Offerte Aanvragen') + ' →';
-  const fprivacy = document.getElementById('footer-privacy-link');
-  if(fprivacy) fprivacy.textContent = lang==='en' ? 'Privacy Policy' : 'Privacybeleid';
-  const fav = document.getElementById('footer-av-link');
-  if(fav) fav.textContent = lang==='en' ? 'Terms & Conditions' : 'Algemene Voorwaarden';
-
-  // Stay on current page
-  const activePage = document.querySelector('.page.active');
-  if (activePage) activePage.classList.add('active');
-}
-
-function t(nlText, enText) {
-  return currentLang === 'en' ? enText : nlText;
-}
-
-function updateNavLabels() {
-  const nav = currentLang === 'en' ? EN.nav : null;
-  document.querySelectorAll('nav a[data-page], .mobile-menu a[data-page]').forEach(a => {
-    const page = a.dataset.page;
-    if (currentLang === 'en') {
-      const labels = {home:'Home',over:'About Us',diensten:'Services',portfolio:'Portfolio',contact:'Contact'};
-      a.textContent = labels[page] || a.textContent;
-    } else {
-      const labels = {home:'Home',over:'Over Ons',diensten:'Diensten',portfolio:'Portfolio',contact:'Contact'};
-      a.textContent = labels[page] || a.textContent;
-    }
-  });
-  const ctaBtn = document.getElementById('header-cta-btn');
-  if (ctaBtn) ctaBtn.textContent = currentLang === 'en' ? 'Request Quote' : 'Offerte Aanvragen';
-  const mobCta = document.getElementById('mob-cta-btn');
-  if (mobCta) mobCta.textContent = (currentLang === 'en' ? 'Request Quote' : 'Offerte Aanvragen') + ' →';
-}
-
-// Restore language preference
-(function() {
-  const saved = localStorage.getItem('piu-lang');
-  if (saved === 'en') {
-    currentLang = 'en';
-    document.getElementById('btn-nl').classList.remove('active');
-    document.getElementById('btn-en').classList.add('active');
-  }
-})();
-
-
 
 /* ── TWEETALIG SYSTEEM NL/EN ── */
 let currentLang = localStorage.getItem('piu-lang') || 'nl';
@@ -708,16 +629,18 @@ function setLang(lang) {
   // Update nav labels
   document.querySelectorAll('nav a[data-page], .mobile-menu a[data-page]').forEach(a => {
     const page = a.dataset.page;
-    const nl = {home:'Home',over:'Over Ons',diensten:'Diensten',portfolio:'Portfolio',contact:'Contact'};
-    const en = {home:'Home',over:'About Us',diensten:'Services',portfolio:'Portfolio',contact:'Contact'};
-    a.textContent = lang === 'en' ? en[page] : nl[page];
+    const nlLabels = {home:'Home',over:'Over Ons',diensten:'Diensten',portfolio:'Portfolio',contact:'Contact'};
+    const enLabels = {home:'Home',over:'About Us',diensten:'Services',portfolio:'Portfolio',contact:'Contact'};
+    a.textContent = lang === 'en' ? enLabels[page] : nlLabels[page];
   });
   const hcta = document.getElementById('header-cta-btn');
   if(hcta) hcta.textContent = lang === 'en' ? 'Request Quote' : 'Offerte Aanvragen';
   const mcta = document.getElementById('mob-cta-btn');
   if(mcta) mcta.textContent = (lang === 'en' ? 'Request Quote' : 'Offerte Aanvragen') + ' →';
+  const fb = document.getElementById('footer-cta-btn');
+  if(fb) fb.textContent = (lang === 'en' ? 'Request Quote' : 'Offerte Aanvragen') + ' →';
 
-  // Update footer
+  // Update footer texts
   const fd = document.getElementById('footer-desc-text');
   if(fd) fd.textContent = lang === 'en' ? 'Specialist in injection moulding, moulds and SLS 3D printing for technical plastic components.' : 'Specialist in spuitgieten, matrijzen en SLS 3D printen voor technische kunststof componenten.';
   const fn = document.getElementById('footer-nav-title');
@@ -725,13 +648,11 @@ function setLang(lang) {
   const fs = document.getElementById('footer-svc-title');
   if(fs) fs.textContent = lang === 'en' ? 'Services' : 'Diensten';
   const fh = document.getElementById('footer-hours');
-  if(fh) fh.innerHTML = lang === 'en' ? 'Mon&ndash;Fri 08:00&ndash;17:30' : 'Ma&ndash;Vr 08:00&ndash;17:30';
+  if(fh) fh.innerHTML = lang === 'en' ? 'Mon–Fri 08:00–17:30' : 'Ma–Vr 08:00–17:30';
   const fp = document.getElementById('footer-privacy-link');
   if(fp) fp.textContent = lang === 'en' ? 'Privacy Policy' : 'Privacybeleid';
   const fa = document.getElementById('footer-av-link');
   if(fa) fa.textContent = lang === 'en' ? 'Terms & Conditions' : 'Algemene Voorwaarden';
-  const fb = document.getElementById('footer-cta-btn');
-  if(fb) fb.textContent = (lang === 'en' ? 'Request Quote' : 'Offerte Aanvragen') + ' →';
 
   // Re-render all pages
   renderShell();
@@ -740,18 +661,10 @@ function setLang(lang) {
   buildDiensten();
   buildPortfolio();
   buildContact();
-
-  // Stay on current active page
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  const activePage = lang === currentLang ? null : null; // handled by showPage below
   showPage(window._currentPage || 'home');
 }
 
-// Track current page
-const _origShowPage = showPage;
-window._currentPage = 'home';
-
-
+/* ── LANGUAGE SYSTEM ── */
 // Load content from JSON files (written by CMS) then render
 async function loadAndRender() {
   try {
@@ -819,12 +732,7 @@ async function loadAndRender() {
 }
 
 loadAndRender().then(() => {
-  // Restore language preference after render
-  if(currentLang === 'en') {
-    document.getElementById('btn-nl').classList.remove('active');
-    document.getElementById('btn-en').classList.add('active');
-    setLang('en');
-  }
+  if(currentLang === 'en') setLang('en');
 });
 
 
