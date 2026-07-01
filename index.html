@@ -654,6 +654,20 @@ function setLang(lang) {
   const fa = document.getElementById('footer-av-link');
   if(fa) fa.textContent = lang === 'en' ? 'Terms & Conditions' : 'Algemene Voorwaarden';
 
+  // Swap content data based on language
+  if(lang === 'en' && window.D_EN) {
+    window._D_NL = window._D_NL || {home: D.home, over: D.over, diensten: D.diensten, contact: D.contact};
+    D.home = window.D_EN.home;
+    D.over = window.D_EN.over;
+    D.diensten = window.D_EN.diensten;
+    D.contact = window.D_EN.contact;
+  } else if(lang === 'nl' && window._D_NL) {
+    D.home = window._D_NL.home;
+    D.over = window._D_NL.over;
+    D.diensten = window._D_NL.diensten;
+    D.contact = window._D_NL.contact;
+  }
+
   // Re-render all pages
   renderShell();
   buildHome();
@@ -716,6 +730,19 @@ async function loadAndRender() {
     D.diensten = diensten;
     D.contact = contact;
     if (portfolio.length > 0) D.portfolio = portfolio;
+
+    // Also load English content files
+    try {
+      const [homeEn, overEn, dienstenEn, contactEn] = await Promise.all([
+        fetch('/content/home-en.json').then(r => r.json()),
+        fetch('/content/over-en.json').then(r => r.json()),
+        fetch('/content/diensten-en.json').then(r => r.json()),
+        fetch('/content/contact-en.json').then(r => r.json()),
+      ]);
+      window.D_EN = { home: homeEn, over: overEn, diensten: dienstenEn, contact: contactEn };
+    } catch(e) {
+      console.log('English content not found, using translations only');
+    }
 
   } catch(err) {
     console.log('Using default content (CMS files not found):', err.message);
